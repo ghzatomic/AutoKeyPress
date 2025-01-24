@@ -6,9 +6,6 @@ import pydirectinput
 def main():
 
 
-    roblox_window = gw.getWindowsWithTitle("Roblox")[0]
-    roblox_window.activate()
-    time.sleep(5)
     # Execute outras ações conforme necessário
     # Por exemplo, você pode simular cliques do mouse com o 'mouse.click()' do módulo 'mouse'
 
