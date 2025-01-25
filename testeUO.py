@@ -1,7 +1,12 @@
+import os
 import win32gui
 import win32con
 import win32api
 import time
+
+WM_USER = 0x0400  # Valor base do WM_USER
+ATTACH_TO_UO = WM_USER + 200
+WM_GET_COORDS = WM_USER + 202
 
 def list_windows():
     """
@@ -49,7 +54,35 @@ def send_key_to_window_by_handle(hwnd, key):
 
     print(f"Tecla '{key}' enviada com sucesso.")
 
-def choose_window_and_send_key(key):
+
+
+
+
+# Função para separar LOWORD e HIWORD do retorno
+def loword(dword):
+    return dword & 0xFFFF
+
+def hiword(dword):
+    return (dword >> 16) & 0xFFFF
+
+# Função para enviar mensagem e obter as coordenadas
+def get_coords(hwnd):
+    pid = os.getpid()
+    f = win32api.SendMessage(hwnd, ATTACH_TO_UO,pid,1)
+    if f > 1:
+        f1 = f
+        for i in range(f1):
+            f = win32api.SendMessage(hwnd, int(ATTACH_TO_UO),pid,1)
+    print(f)
+    ret_val = win32api.SendMessage(hwnd, WM_GET_COORDS)
+    
+    # Separar o valor retornado em X (LOWORD) e Y (HIWORD)
+    x = loword(ret_val)
+    y = hiword(ret_val)
+    
+    return x, y
+
+def test():
     """
     Lista as janelas disponíveis, permite ao usuário escolher uma, e envia a tecla.
 
@@ -81,9 +114,14 @@ def choose_window_and_send_key(key):
 
     hwnd, title = windows[choice]
     print(f"Janela escolhida: {title}")
-
+    try:
+        coords = get_coords(hwnd)
+        print(f"Coordenadas atuais: {coords[0]}")
+    except Exception as e:
+        print(f"Erro: {e}")
     # Envia a tecla para a janela escolhida
-    send_key_to_window_by_handle(hwnd, key)
+    #send_key_to_window_by_handle(hwnd, key)
 
-# Exemplo de uso: Escolher uma janela e enviar a tecla "a"
-choose_window_and_send_key("left")
+
+
+test()

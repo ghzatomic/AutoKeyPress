@@ -8,7 +8,15 @@
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
-            "program": "./testeUOControle.py",
+            "program": "./controla.py",
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "Python: Current Test",
+            "type": "python",
+            "request": "launch",
+            "program": "./testeUO.py",
             "console": "integratedTerminal",
             "justMyCode": false
         }

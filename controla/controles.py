@@ -11,6 +11,10 @@ movements = {
     'DOWN': vg.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_DOWN,
     'LEFT': vg.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_LEFT,
     'RIGHT': vg.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_RIGHT,
+    'DIAGONAL_CIMA_DIREITA': [vg.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_UP,vg.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_RIGHT],
+    'DIAGONAL_CIMA_ESQUERDA': [vg.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_UP,vg.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_LEFT],
+    'DIAGONAL_BAIXO_ESQUERDA': [vg.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_DOWN,vg.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_LEFT],
+    'DIAGONAL_BAIXO_DIREITA': [vg.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_DOWN,vg.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_RIGHT],
     'CLICK': vg.XUSB_BUTTON.XUSB_GAMEPAD_B,
     'CLICKA': vg.XUSB_BUTTON.XUSB_GAMEPAD_A,
     'CLICKX': vg.XUSB_BUTTON.XUSB_GAMEPAD_X,
@@ -44,24 +48,27 @@ def clica_loot(qtde=1,delay_ini=0.2):
         pressiona_botao(movements["CLICK"],delay_ini=delay_ini)
 
 def pressiona_solta(btn,delay=0.3):
-    gamepad.press_button(btn)
-    gamepad.update()
-    print(f"Botão pressionado!")
-    time.sleep(delay)
-
-    gamepad.release_button(btn)
-    gamepad.update()
-    print(f"Botão liberado!")
+    pressiona_botao(btn,delay_end=delay)
 
 def pressiona_botao(movimento, delay_ini=1, delay_end=None):
     # Simula o movimento no gamepad
-    gamepad.press_button(movimento)
-    gamepad.update()
+    if isinstance(movimento, list):
+        for m in movimento:
+            gamepad.press_button(m)
+            gamepad.update()
+    else:
+        gamepad.press_button(movimento)
+        gamepad.update()
     if delay_ini:
         time.sleep(delay_ini)
-
-    gamepad.release_button(movimento)
-    gamepad.update()
+    
+    if isinstance(movimento, list):
+        for m in movimento:
+            gamepad.release_button(m)
+            gamepad.update()
+    else:
+        gamepad.release_button(movimento)
+        gamepad.update()
     if delay_end:
         time.sleep(delay_end)
 
@@ -324,56 +331,8 @@ def return_to_origin(movements_list):
 
     print("Movimentos finalizados. Retornou ao ponto de origem!")
 
-def perform_square_movements_batedor_ossuario(duration=1, delay=0.5):
-    """
-    Realiza movimentos em formato de quadrado por uma duração especificada.
-    
-    Args:
-        duration (float): Duração total para os movimentos, em segundos.
-        delay (float): Tempo de espera entre as ações, em segundos.
-    """
-    print("Iniciando movimentos em quadrado...")
-    start_time = time.time()
-    square_sequence = ['UP', 'RIGHT', 'DOWN', 'LEFT','UP']  # Sequência de movimentos
 
-    while time.time() - start_time < duration:
-        for move in square_sequence:
-            # Simula o movimento no gamepad
-            pressiona_botao(movements[move],delay_ini=delay)
-
-    print("Finalizado! Movimentos em quadrado completos.")
-
-def perform_square_sobedesce_batedor_ossuario(delay=3, delay_between_buttons=None,func_beteen_moves=None):
-    """
-    Realiza movimentos em formato de quadrado por uma duração especificada.
-
-    Args:
-        delay (float): Tempo total para os movimentos, em segundos.
-        delay_between_buttons (float): Tempo entre as ações individuais, em segundos.
-    """
-    print("Iniciando movimentos em diagonal...")
-    square_sequence = ['UP', 'DOWN', 'UP']  # Sequência de movimentos
-
-    if delay_between_buttons:
-        # Calcula o número de execuções com base no delay total
-        num_executions = int(delay / delay_between_buttons)
-
-        for move in square_sequence:
-            for _ in range(num_executions):
-                pressiona_botao(movements[move], delay_ini=delay_between_buttons)
-                time.sleep(delay_between_buttons)
-                if func_beteen_moves:
-                    func_beteen_moves()
-    else:
-        for move in square_sequence:
-            pressiona_botao(movements[move], delay_ini=delay)
-            if func_beteen_moves:
-                func_beteen_moves()
-
-    print("Finalizado! Movimentos em diagonal completos.")
-
-
-def movimento_eldrich():
+def movimento_eldrich_sobe_desce():
     """
     Realiza movimentos em formato de quadrado por uma duração especificada.
     
@@ -384,142 +343,16 @@ def movimento_eldrich():
     print("Iniciando movimentos do eldrich...")
     pressiona_solta(movements["CLICKX"])
     time.sleep(0.5)
-    pressiona_solta(movements["DOWN"],delay=0.5)
+    pressiona_solta(movements["DIAGONAL_BAIXO_DIREITA"],delay=0.5)
     pressiona_solta(movements["CLICKY"])
-    pressiona_solta(movements["UP"],delay=0.5)
+    pressiona_solta(movements["DIAGONAL_CIMA_ESQUERDA"],delay=0.5)
     pressiona_solta(movements["CLICKY"])
-    pressiona_solta(movements["DOWN"],delay=0.5)
+    pressiona_solta(movements["DIAGONAL_BAIXO_DIREITA"],delay=0.5)
     pressiona_solta(movements["CLICKY"])
-    pressiona_solta(movements["UP"],delay=1)
+    pressiona_solta(movements["DIAGONAL_CIMA_ESQUERDA"],delay=0.5)
+    pressiona_solta(movements["CLICKY"])
+    pressiona_solta(movements["DIAGONAL_BAIXO_DIREITA"],delay=1)
     pressiona_solta(movements["CLICKA"])
     time.sleep(0.5)
 
-    print("Finalizado! Movimentos Eldritch Ossuario.")
-
-def movimento_batedor_ossuario_salinha():
-    while True:
-        perform_square_movements_batedor_ossuario(duration=8,delay=1)
-        
-        random_sleep(60, 2*60)
-        for x in range(10):
-            clica_loot()
-            random_sleep(1, 1)
-        perform_random_movements_with_breaks(
-            num_movements=3, 
-            delay=0.3, 
-            pause_duration=0, 
-            pause_interval=0.6
-        )
-        for x in range(10):
-            clica_loot()
-            random_sleep(1, 1)
-        perform_square_sobedesce_batedor_ossuario(delay=4)
-        random_sleep(80, 3*60)
-        for x in range(10):
-            clica_loot()
-            random_sleep(1, 1)
-        perform_random_movements_with_breaks(
-            num_movements=4, 
-            delay=0.3, 
-            pause_duration=0, 
-            pause_interval=0.6
-        )
-        for x in range(10):
-            clica_loot()
-            random_sleep(1, 1)
-
-def movimento_batedor_ossuario_salinha_arco():
-    delay_cait = 0.6
-
-    def clica_loot_timer():
-        clica_loot()
-        random_sleep(0.1,0.1)
-
-    def resetar_salinha():
-
-        sequence = [
-            ('UP',delay_cait), ('LEFT',delay_cait), ('DOWN',0.3),('LEFT',delay_cait),
-            ('LEFT',delay_cait), ('UP',delay_cait), ('RIGHT',delay_cait),
-            ('UP',delay_cait),('UP',delay_cait), ('LEFT',delay_cait), ('UP',delay_cait), ('UP',delay_cait),
-            ('RIGHT',delay_cait), ('UP',delay_cait), ('LEFT',delay_cait), ('UP',delay_cait),('UP',delay_cait),('UP',delay_cait)
-        ]  # Sequência de movimentos
-
-        for move,delay in sequence:
-            print(f"Aqui : {move},{delay}")
-            pressiona_botao(movements[move], delay_ini=delay)
-            time.sleep(delay_cait)
-            clica_loot_timer()
-            #for x in range(2):
-            #    clica_loot()
-
-    while True:
-        #RESETAR
-        resetar_salinha()
-        random_sleep(1,15)
-        for x in range(8):
-            perform_random_movements_with_breaks(
-                num_movements=2, 
-                delay=0.3, 
-                pause_duration=0, 
-                pause_interval=delay_cait,
-                func_beteen_moves=clica_loot_timer,
-                move_keys = ['RIGHT', 'DOWN', 'LEFT'],
-            )
-            for x in range(2):
-                clica_loot_timer()
-            random_sleep(1,15)
-        perform_square_sobedesce_batedor_ossuario(delay=5,delay_between_buttons=1,
-                func_beteen_moves=clica_loot_timer)
-        random_sleep(1,15)
-
-if __name__ == "__main__":
-    print("1. Gravar movimentos")
-    print("2. Reproduzir movimentos")
-    print("3. Movimentos Randomicos")
-    print("4. Movimentos Quadrados")
-    print("5. Rodadinha")
-    print("6. Movimento eldrich")
-    print("7. Movimento batedor salinha melee")
-    print("8. Movimento batedor salinha arco")
-    choice = input("Escolha uma opção: ")
-
-    if choice == "1":
-        record_movements()  # Grava movimentos até pressionar F2
-    elif choice == "2":
-        replay_movements(input_file="movements.txt", return_to_origin_flag=True)
-    elif choice == "3":
-        print("Iniciando "+choice+" - Va para a tela")
-        time.sleep(3)
-        perform_random_movements_with_breaks(
-            num_movements=50, 
-            delay=0.2, 
-            pause_duration=60, 
-            pause_interval=10
-        )
-    elif choice == "4":
-        print("Iniciando "+choice+" - Va para a tela")
-        time.sleep(3)
-        perform_square_movements(duration=1, delay=0.3)
-    elif choice == "5":
-        print("Iniciando "+choice+" - Va para a tela")
-        time.sleep(3)
-        while True:
-            perform_random_movements(num_movements=2,delay=0.1,performBack=False)
-            random_sleep(5, 6)
-    elif choice == "6":
-        print("Iniciando "+choice+" - Va para a tela")
-        time.sleep(3)
-        while True:
-            movimento_eldrich()
-            random_sleep(4*60, 10*60)
-            #time.sleep(4*60)
-    elif choice == "7":
-        print("Iniciando "+choice+" - Va para a tela")
-        time.sleep(3)
-        movimento_batedor_ossuario_salinha()
-    elif choice == "8":
-        print("Iniciando "+choice+" - Va para a tela")
-        time.sleep(3)
-        movimento_batedor_ossuario_salinha_arco()
-    else:
-        print("Opção inválida!")
+    print("Finalizado! Movimentos Eldritch.")
