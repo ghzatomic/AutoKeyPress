@@ -14,7 +14,7 @@
         },
         {
             "name": "Python: Current Test",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "program": "./testeUO.py",
             "console": "integratedTerminal",
