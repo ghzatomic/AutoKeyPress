@@ -16,7 +16,8 @@ if __name__ == "__main__":
     print("9. Movimento batedor petram lvl2")
     print("10. Movimento batedor petram lvl1 Harpias")
     print("11. Movimento batedor petram lvl1 Earth elemental ")
-    print("99. Testes ")
+    print("99. Gravar posições ")
+    print("100. Ler posições ")
     choice = input("Escolha uma opção: ")
 
     if choice == "1":
@@ -73,7 +74,7 @@ if __name__ == "__main__":
         print("Iniciando "+choice+" - Va para a tela")
         time.sleep(3)
         movimento_batedor_petran_lvl1_earths()
-    elif choice == "99":
+    elif choice == "98":
         print("Iniciando "+choice+" - Va para a tela")
         time.sleep(3)
         uo_assist = UOAssistConnector()
@@ -106,5 +107,38 @@ if __name__ == "__main__":
             tolerance=2,  # Aceita uma variação de até 2 tiles no X e Y
             stuck_threshold=4  # Considera que está preso se repetir 4 vezes a mesma posição
         )
+    elif choice == "99":
+        uo_assist = UOAssistConnector()
+    
+        # Executar como administrador
+        uo_assist.run_as_admin()
+
+        # Conectar ao UOAssist
+        if uo_assist.attach_to_assistant():
+            # Obter coordenadas
+            coords = uo_assist.get_character_coords()
+
+        record_position_xy(uo_assist)
+    
+    elif choice == "100":
+        uo_assist = UOAssistConnector()
+    
+        # Executar como administrador
+        uo_assist.run_as_admin()
+
+        # Conectar ao UOAssist
+        if uo_assist.attach_to_assistant():
+            # Obter coordenadas
+            coords = uo_assist.get_character_coords()
+
+        def delay_variavel():
+            return random.uniform(0.2, 0.3)
+        
+        def on_move_log(x, y, target_x, target_y):
+            print(f"Personagem se movendo... Atual: ({x}, {y}) -> Destino: ({target_x}, {target_y})")
+
+        path = load_movement_path_with_selection(step_delay_fn=delay_variavel, move_callback=on_move_log)
+        if path:
+            execute_movement_path(uo_assist, path)
     else:
         print("Opção inválida!")

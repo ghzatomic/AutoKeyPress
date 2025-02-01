@@ -1,8 +1,11 @@
 import random
 import time
+import os
 import vgamepad as vg
 from inputs import get_gamepad
 import keyboard
+import json
+from datetime import datetime
 
 gamepad = vg.VX360Gamepad()
 # Movimentos possíveis com suas direções relativas
@@ -227,6 +230,100 @@ def move_to_target_smart(uo_assist, target_x, target_y, step_delay_fn, tolerance
                 failed_moves.add(move_name)  # Registra que esse movimento falhou
 
     print(f"🏁 Destino alcançado! Posição final: X={current_x}, Y={current_y} (Dentro da tolerância de {tolerance})")
+
+
+def load_movement_path_with_selection(save_folder="gravados", step_delay_fn=None, move_callback=None):
+    """
+    Lista todos os arquivos de movimentos gravados e permite ao usuário escolher um para carregar.
+
+    Args:
+        save_folder (str): Pasta onde os arquivos de coordenadas estão armazenados.
+        step_delay_fn (function): Função que define o delay entre movimentos.
+        move_callback (function): Função a ser chamada em cada movimento.
+
+    Returns:
+        list: Lista de tuplas no formato [(x, y, step_delay_fn, move_callback), ...]
+    """
+    if not os.path.exists(save_folder):
+        print(f"❌ A pasta '{save_folder}' não existe!")
+        return []
+
+    files = [f for f in os.listdir(save_folder) if f.endswith(".json")]
+    
+    if not files:
+        print("❌ Nenhum arquivo de movimento encontrado!")
+        return []
+
+    # Exibir lista de arquivos disponíveis
+    print("\n📂 Arquivos disponíveis:")
+    for i, file in enumerate(files):
+        print(f"[{i+1}] {file}")
+
+    # Solicitar escolha do usuário
+    while True:
+        try:
+            choice = int(input("Digite o número do arquivo que deseja carregar: ")) - 1
+            if 0 <= choice < len(files):
+                filename = os.path.join(save_folder, files[choice])
+                break
+            else:
+                print("❌ Escolha inválida! Tente novamente.")
+        except ValueError:
+            print("❌ Entrada inválida! Digite um número.")
+
+    # Carregar o arquivo escolhido
+    with open(filename, "r") as f:
+        data = json.load(f)
+
+    path = [(entry["x"], entry["y"], step_delay_fn, move_callback) for entry in data]
+    print(f"📄 {len(path)} coordenadas carregadas do arquivo '{files[choice]}'")
+    
+    return path
+
+
+def record_position_xy(uo_assist, save_folder="gravados", filename = f"movimento_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"):
+    """
+    Grava coordenadas do personagem ao pressionar ESC e salva em um arquivo nomeado pelo usuário.
+
+    Args:
+        uo_assist (UOAssistConnector): Instância do UOAssist para obter coordenadas.
+        save_folder (str): Pasta onde os arquivos de coordenadas serão salvos.
+    """
+    if not os.path.exists(save_folder):
+        os.makedirs(save_folder)  # Cria a pasta se não existir
+
+    # Solicita um nome de arquivo ao usuário
+    filename_base = input("📁 Digite o nome do arquivo para salvar os movimentos: ").strip()
+    filename = os.path.join(save_folder, f"{filename_base}.json")
+
+    # Se o arquivo já existir, adiciona um sufixo numérico para evitar sobrescrever
+    counter = 1
+    while os.path.exists(filename):
+        filename = os.path.join(save_folder, f"{filename_base}_{counter}.json")
+        counter += 1
+
+    print(f"🎬 Pressione ESC para gravar coordenadas. Pressione CTRL+C para sair.")
+    
+    recorded_positions = []
+
+    while True:
+        keyboard.wait("esc")  # Aguarda pressionamento da tecla ESC
+        
+        coords = uo_assist.get_character_coords()
+        if not coords:
+            print("Erro ao obter coordenadas.")
+            continue
+
+        current_x, current_y = coords
+        print(f"🔴 Coordenada gravada: ({current_x}, {current_y})")
+
+        recorded_positions.append({"x": current_x, "y": current_y})
+
+        # Salva no arquivo em tempo real
+        with open(filename, "w") as f:
+            json.dump(recorded_positions, f, indent=4)
+
+        print(f"📁 Coordenadas salvas em {filename}")
 
 def execute_movement_path(uo_assist, path, tolerance=2, stuck_threshold=3):
     """
