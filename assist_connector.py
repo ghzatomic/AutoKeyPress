@@ -114,7 +114,7 @@ class UOAssistConnector:
         if loc > 0:
             x = loc & 0xFFFF  # Parte baixa (16 bits inferiores)
             y = (loc >> 16) & 0xFFFF  # Parte alta (16 bits superiores)
-            print(f"Coordenadas do personagem: X={x}, Y={y}")
+            #print(f"Coordenadas do personagem: X={x}, Y={y}")
             return x, y
         else:
             print("Falha ao obter coordenadas.")

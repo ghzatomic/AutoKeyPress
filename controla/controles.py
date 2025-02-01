@@ -59,7 +59,7 @@ def move_away_from_wall(failed_moves):
     Quando o personagem fica preso entre dois obstáculos laterais e uma parede,
     ele tenta se mover para cima ou diagonalmente para sair do canto.
     """
-    escape_moves = ["UP", "DIAGONAL_CIMA_ESQUERDA", "DIAGONAL_CIMA_DIREITA"]
+    escape_moves = ["UP", "DIAGONAL_CIMA_ESQUERDA", "DIAGONAL_CIMA_DIREITA", "DIAGONAL_BAIXO_DIREITA","DIAGONAL_BAIXO_ESQUERDA","DOWN","LEFT","RIGHT"]
     
     # Remove movimentos que já falharam para não repetir erros
     available_moves = [m for m in escape_moves if m not in failed_moves]
@@ -84,10 +84,10 @@ def move_away_from_wall_long(failed_moves):
         failed_moves (set): Conjunto de movimentos que já falharam.
     """
     escape_moves = [
-        ("UP_LONG", -1, -3), 
-        ("DOWN_LONG", 1, 3), 
-        ("LEFT_LONG", -3, 1), 
-        ("RIGHT_LONG", 3, -1)
+        ("UP", -1, -3), 
+        ("DOWN", 1, 3), 
+        ("LEFT", -3, 1), 
+        ("RIGHT", 3, -1)
     ]
 
     # Remove movimentos já falhados
@@ -102,7 +102,7 @@ def move_away_from_wall_long(failed_moves):
     
     print(f"🚀 Tentando escapar com movimento longo: {move_name}")
     for _ in range(random.randint(3, 15)):  
-        pressiona_botao(movements[move_name], delay_ini=0.5)
+        pressiona_botao(movements[move_name], delay_ini=0.2)
 
 
 def move_to_target_smart(uo_assist, target_x, target_y, step_delay_fn, tolerance=2, stuck_threshold=10, on_move_callback=None, on_stuck_callback=None, max_attempts=5):
@@ -169,7 +169,7 @@ def move_to_target_smart(uo_assist, target_x, target_y, step_delay_fn, tolerance
             if on_stuck_callback:
                 on_stuck_callback(updated_x, updated_y, failed_moves)
             else:
-                move_away_from_wall_long(failed_moves)
+                move_away_from_wall(failed_moves)
 
             no_progress_count = 0  # Resetar contador após tentativa de desbloqueio
             failed_moves.clear()  # Reseta a lista de movimentos falhos
@@ -190,7 +190,7 @@ def move_to_target_smart(uo_assist, target_x, target_y, step_delay_fn, tolerance
             if on_stuck_callback:
                 on_stuck_callback(current_x, current_y, failed_moves)
             else:
-                move_away_from_wall_long(failed_moves)
+                move_away_from_wall(failed_moves)
 
             no_progress_count = 0  # Resetar contador após tentativa de desbloqueio
             failed_moves.clear()  # Reseta a lista de movimentos falhos
@@ -210,8 +210,8 @@ def move_to_target_smart(uo_assist, target_x, target_y, step_delay_fn, tolerance
             pressiona_botao(movements[move_name], delay_ini=step_delay_fn())
 
             # Chama a função de callback após o movimento (se houver)
-            if on_move_callback:
-                on_move_callback(current_x, current_y, target_x, target_y)
+            #if on_move_callback:
+            #    on_move_callback(current_x, current_y, target_x, target_y)
 
             # Atualiza a posição real novamente após o movimento
             coords = uo_assist.get_character_coords()
@@ -220,7 +220,7 @@ def move_to_target_smart(uo_assist, target_x, target_y, step_delay_fn, tolerance
                 return
             updated_x, updated_y = coords
 
-            print(f"Nova posição: X={updated_x}, Y={updated_y}")
+            #print(f"Posição atual: X={updated_x}, Y={updated_y}")
 
             # Se o personagem realmente se moveu, continuar o loop
             if (updated_x, updated_y) != last_positions[-1]:
@@ -232,13 +232,15 @@ def move_to_target_smart(uo_assist, target_x, target_y, step_delay_fn, tolerance
     print(f"🏁 Destino alcançado! Posição final: X={current_x}, Y={current_y} (Dentro da tolerância de {tolerance})")
 
 
-def load_movement_path_with_selection(save_folder="gravados", step_delay_fn=None, move_callback=None):
+def load_movement_path_with_selection(save_folder="gravados", default_min_delay=0.2, default_max_delay=0.5, move_callback=None):
     """
     Lista todos os arquivos de movimentos gravados e permite ao usuário escolher um para carregar.
+    Carrega os delays gravados ou usa os delays padrões.
 
     Args:
         save_folder (str): Pasta onde os arquivos de coordenadas estão armazenados.
-        step_delay_fn (function): Função que define o delay entre movimentos.
+        default_min_delay (float): Delay mínimo padrão caso o arquivo não tenha um delay salvo.
+        default_max_delay (float): Delay máximo padrão caso o arquivo não tenha um delay salvo.
         move_callback (function): Função a ser chamada em cada movimento.
 
     Returns:
@@ -275,57 +277,120 @@ def load_movement_path_with_selection(save_folder="gravados", step_delay_fn=None
     with open(filename, "r") as f:
         data = json.load(f)
 
-    path = [(entry["x"], entry["y"], step_delay_fn, move_callback) for entry in data]
+    path = []
+    for entry in data:
+        min_delay = entry.get("min_delay", default_min_delay)
+        max_delay = entry.get("max_delay", default_max_delay)
+
+        # Criar uma função de delay dinâmico para cada movimento
+        def step_delay_fn(min_d=min_delay, max_d=max_delay):
+            return random.uniform(min_d, max_d)
+
+        path.append((entry["x"], entry["y"], step_delay_fn, move_callback))
+
     print(f"📄 {len(path)} coordenadas carregadas do arquivo '{files[choice]}'")
     
     return path
 
 
-def record_position_xy(uo_assist, save_folder="gravados", filename = f"movimento_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"):
+import os
+import keyboard
+import json
+import random
+from datetime import datetime
+
+def record_position_xy(uo_assist, save_folder="gravados", filename=None):
     """
-    Grava coordenadas do personagem ao pressionar ESC e salva em um arquivo nomeado pelo usuário.
+    Grava coordenadas do personagem ao pressionar ESC ou F1 e salva em um arquivo.
+
+    - `ESC`: Usa o delay padrão definido pelo usuário.
+    - `F1`: Usa um delay fixo de 0.1 segundos.
+    - `CTRL+C`: Encerra a gravação corretamente.
+    - Se o arquivo já existir, ele continua de onde parou.
 
     Args:
         uo_assist (UOAssistConnector): Instância do UOAssist para obter coordenadas.
         save_folder (str): Pasta onde os arquivos de coordenadas serão salvos.
+        filename (str, optional): Nome do arquivo para salvar. Se None, pede um nome ao usuário.
     """
     if not os.path.exists(save_folder):
         os.makedirs(save_folder)  # Cria a pasta se não existir
 
-    # Solicita um nome de arquivo ao usuário
-    filename_base = input("📁 Digite o nome do arquivo para salvar os movimentos: ").strip()
-    filename = os.path.join(save_folder, f"{filename_base}.json")
+    # Solicita um nome de arquivo ao usuário se não for fornecido
+    if not filename:
+        filename_base = input("📁 Digite o nome do arquivo para salvar os movimentos: ").strip()
+        filename = os.path.join(save_folder, f"{filename_base}.json")
 
-    # Se o arquivo já existir, adiciona um sufixo numérico para evitar sobrescrever
-    counter = 1
-    while os.path.exists(filename):
-        filename = os.path.join(save_folder, f"{filename_base}_{counter}.json")
-        counter += 1
+    # Se o arquivo já existir, carrega os dados para continuar gravando
+    if os.path.exists(filename):
+        with open(filename, "r") as f:
+            try:
+                recorded_positions = json.load(f)
+                print(f"🔄 Continuando gravação no arquivo '{filename}' ({len(recorded_positions)} coordenadas existentes).")
+            except json.JSONDecodeError:
+                print(f"⚠️ Erro ao carregar '{filename}'. Criando um novo arquivo.")
+                recorded_positions = []
+    else:
+        recorded_positions = []
 
-    print(f"🎬 Pressione ESC para gravar coordenadas. Pressione CTRL+C para sair.")
-    
-    recorded_positions = []
-
+    # Pergunta o range de delay
     while True:
-        keyboard.wait("esc")  # Aguarda pressionamento da tecla ESC
-        
-        coords = uo_assist.get_character_coords()
-        if not coords:
-            print("Erro ao obter coordenadas.")
-            continue
+        try:
+            min_delay = float(input("⏳ Digite o delay mínimo (segundos): "))
+            max_delay = float(input("⏳ Digite o delay máximo (segundos): "))
+            if min_delay > 0 and max_delay >= min_delay:
+                break
+            else:
+                print("❌ O delay máximo deve ser maior ou igual ao mínimo, e ambos devem ser positivos.")
+        except ValueError:
+            print("❌ Entrada inválida! Digite valores numéricos.")
 
-        current_x, current_y = coords
-        print(f"🔴 Coordenada gravada: ({current_x}, {current_y})")
+    print(f"🎬 Pressione ESC para gravar com delay padrão ({min_delay}-{max_delay}s)")
+    print(f"🎬 Pressione F1 para gravar com delay fixo de 0.1s")
+    print(f"🛑 Pressione CTRL+C para sair.")
 
-        recorded_positions.append({"x": current_x, "y": current_y})
+    try:
+        while True:
+            event = keyboard.read_event(suppress=True)  # Captura qualquer tecla pressionada
 
-        # Salva no arquivo em tempo real
-        with open(filename, "w") as f:
-            json.dump(recorded_positions, f, indent=4)
+            if event.event_type == keyboard.KEY_DOWN:  # Apenas quando a tecla for pressionada
+                coords = uo_assist.get_character_coords()
+                if not coords:
+                    print("Erro ao obter coordenadas.")
+                    continue
 
-        print(f"📁 Coordenadas salvas em {filename}")
+                current_x, current_y = coords
 
-def execute_movement_path(uo_assist, path, tolerance=2, stuck_threshold=3):
+                if event.name == "esc":
+                    delay_min = min_delay
+                    delay_max = max_delay
+                    print(f"🔴 Coordenada gravada com delay padrão: ({current_x}, {current_y})")
+
+                elif event.name == "f1":
+                    delay_min = 0.1
+                    delay_max = 0.1
+                    print(f"🔴 Coordenada gravada com delay fixo de 0.1s: ({current_x}, {current_y})")
+
+                else:
+                    continue  # Ignora outras teclas
+
+                recorded_positions.append({
+                    "x": current_x,
+                    "y": current_y,
+                    "min_delay": delay_min,
+                    "max_delay": delay_max
+                })
+
+                # Salva no arquivo em tempo real, preservando as coordenadas antigas
+                with open(filename, "w") as f:
+                    json.dump(recorded_positions, f, indent=4)
+
+                print(f"📁 Coordenadas salvas em {filename}")
+
+    except KeyboardInterrupt:
+        print("\n🛑 Gravação interrompida pelo usuário. Coordenadas salvas com sucesso!")
+
+def execute_movement_path(uo_assist, path, tolerance=2, stuck_threshold=3, step_delay=0.2):
     """
     Percorre um caminho baseado em um mapa de coordenadas, movendo-se de ponto a ponto.
 
@@ -350,17 +415,19 @@ def execute_movement_path(uo_assist, path, tolerance=2, stuck_threshold=3):
 
     for target_x, target_y, step_delay_fn, move_callback in path:
         print(f"📍 Movendo para o próximo ponto: ({target_x}, {target_y})")
-
+        def delay_fn():
+            return step_delay
         move_to_target_smart(
             uo_assist,
             target_x=target_x,
             target_y=target_y,
-            step_delay_fn=step_delay_fn,
+            step_delay_fn=delay_fn,
             tolerance=tolerance,
             stuck_threshold=stuck_threshold,
             on_move_callback=move_callback
         )
-
+        if step_delay_fn:
+            time.sleep(step_delay_fn())
     print("✅ Percurso completo!")
 
 
