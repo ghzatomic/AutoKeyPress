@@ -3,7 +3,6 @@ from controla.ossuario import *
 from controla.mount_petram import *
 from assist_connector import UOAssistConnector
 
-
 def input_boolean(prompt="Deseja continuar? (s/n): "):
     while True:
         resposta = input(prompt).strip().lower()
@@ -15,6 +14,7 @@ def input_boolean(prompt="Deseja continuar? (s/n): "):
             print("❌ Entrada inválida! Digite 's' para Sim ou 'n' para Não.")
 
 if __name__ == "__main__":
+    pause_flag = False
     print("1. Gravar movimentos")
     print("2. Reproduzir movimentos")
     print("3. Movimentos Randomicos")

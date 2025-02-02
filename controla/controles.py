@@ -7,6 +7,20 @@ import keyboard
 import json
 from datetime import datetime
 
+pause_flag = False
+
+def on_esc_key(event):
+    """
+    Callback chamada toda vez que a tecla 'esc' for pressionada.
+    Define a flag de pausa.
+    """
+    global pause_flag
+    pause_flag = True
+    print("Tecla ESC pressionada! Sinalizando pausa...")
+
+# Registra o callback para a tecla "esc"
+keyboard.on_press_key("esc", on_esc_key)
+
 gamepad = vg.VX360Gamepad()
 # Movimentos possíveis com suas direções relativas
 movements = {
@@ -120,6 +134,10 @@ def move_to_target_smart(uo_assist, target_x, target_y, step_delay_fn, tolerance
         on_stuck_callback (function, optional): Função chamada quando o personagem fica preso (pode ser None).
         max_attempts (int): Número máximo de tentativas sem progresso antes de chamar `on_stuck_callback`.
     """
+
+    global pause_flag
+    pause_flag = False
+
     if not uo_assist.attach_to_assistant():
         print("Erro: Não foi possível anexar ao UOAssist.")
         return
@@ -150,13 +168,15 @@ def move_to_target_smart(uo_assist, target_x, target_y, step_delay_fn, tolerance
     ]
 
     while abs(current_x - target_x) > tolerance or abs(current_y - target_y) > tolerance:
-        # Atualiza a posição real do personagem antes de cada movimento
         coords = uo_assist.get_character_coords()
         if not coords:
             print("Erro: Não foi possível obter a posição atual.")
             return
         updated_x, updated_y = coords
-
+        if pause_flag:  # Checa novamente no “meio” do timeout
+            print("Pausando por 40 segundos durante a espera...")
+            time.sleep(40)
+            pause_flag = False
         # Adiciona a posição ao histórico das últimas `stuck_threshold` posições
         last_positions.append((updated_x, updated_y))
         if len(last_positions) > stuck_threshold:
@@ -206,6 +226,11 @@ def move_to_target_smart(uo_assist, target_x, target_y, step_delay_fn, tolerance
 
             if (new_x, new_y) in failed_moves:
                 continue  # Evita tentar um movimento que já falhou recentemente
+            
+            if pause_flag:  # Checa novamente no “meio” do timeout
+                print("Pausando por 40 segundos durante a espera...")
+                time.sleep(40)
+                pause_flag = False
 
             pressiona_botao(movements[move_name], delay_ini=step_delay_fn())
 
@@ -345,8 +370,8 @@ def record_position_xy(uo_assist, save_folder="gravados", filename=None):
         except ValueError:
             print("❌ Entrada inválida! Digite valores numéricos.")
 
-    print(f"🎬 Pressione ESC para gravar com delay padrão ({min_delay}-{max_delay}s)")
-    print(f"🎬 Pressione F1 para gravar com delay fixo de 0.1s")
+    print(f"🎬 Pressione F1 para gravar com delay padrão ({min_delay}-{max_delay}s)")
+    print(f"🎬 Pressione F2 para gravar com delay fixo de 0.1s")
     print(f"🛑 Pressione CTRL+C para sair.")
 
     try:
@@ -361,12 +386,12 @@ def record_position_xy(uo_assist, save_folder="gravados", filename=None):
 
                 current_x, current_y = coords
 
-                if event.name == "esc":
+                if event.name == "f1":
                     delay_min = min_delay
                     delay_max = max_delay
                     print(f"🔴 Coordenada gravada com delay padrão: ({current_x}, {current_y})")
 
-                elif event.name == "f1":
+                elif event.name == "f2":
                     delay_min = 0.1
                     delay_max = 0.1
                     print(f"🔴 Coordenada gravada com delay fixo de 0.1s: ({current_x}, {current_y})")
@@ -400,6 +425,8 @@ def execute_movement_path(uo_assist, path, tolerance=2, stuck_threshold=3, step_
         tolerance (int): Distância aceitável do destino para considerar como "chegou".
         stuck_threshold (int): Quantidade de vezes que o personagem precisa repetir a mesma posição para ser considerado preso.
     """
+    global pause_flag
+    pause_flag = False
     if not uo_assist.attach_to_assistant():
         print("Erro: Não foi possível anexar ao UOAssist.")
         return
@@ -414,6 +441,10 @@ def execute_movement_path(uo_assist, path, tolerance=2, stuck_threshold=3, step_
     print(f"Iniciando percurso... {len(path)} pontos no total")
 
     for target_x, target_y, step_delay_fn, move_callback in path:
+        if pause_flag:  # Checa novamente no “meio” do timeout
+            print("Pausando por 40 segundos durante a espera...")
+            time.sleep(40)
+            pause_flag = False
         print(f"📍 Movendo para o próximo ponto: ({target_x}, {target_y})")
         def delay_fn():
             return step_delay
@@ -429,6 +460,7 @@ def execute_movement_path(uo_assist, path, tolerance=2, stuck_threshold=3, step_
         if step_delay_fn:
             time.sleep(step_delay_fn())
     print("✅ Percurso completo!")
+    #keyboard.unhook_all()
 
 
 def random_sleep(min_seconds, max_seconds):
