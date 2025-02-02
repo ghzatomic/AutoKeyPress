@@ -1,0 +1,356 @@
+[
+    {
+        "local": "Restock",
+        "x": 195,
+        "y": 741,
+        "min_delay": 20.0,
+        "max_delay": 20.0,
+        "tolerance": 0,
+        "moves_after": ["CLICKBACK"]
+    },
+    {
+        "local": "Vai p dungeon",
+        "x": 195,
+        "y": 741,
+        "min_delay": 5.0,
+        "max_delay": 5.0,
+        "tolerance": 0,
+        "moves_after": ["CLICKA"]
+    },
+    {
+        "x": 1914,
+        "y": 1129,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "tolerance": 0,
+        "moves_after": ["DIAGONAL_CIMA_ESQUERDA","DIAGONAL_CIMA_ESQUERDA","DIAGONAL_CIMA_ESQUERDA","DIAGONAL_CIMA_ESQUERDA"]
+    },
+    {
+        "x": 5243,
+        "y": 2820,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5243,
+        "y": 2812,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5259,
+        "y": 2812,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5259,
+        "y": 2827,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5234,
+        "y": 2827,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5234,
+        "y": 2810,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    { 
+        "local": "Comeca a dungeon, saida ponte",
+        "x": 5213,
+        "y": 2810,
+        "min_delay": 60.0,
+        "max_delay": 60.0
+    },
+    {
+        "x": 5210,
+        "y": 2831,
+        "min_delay": 60.0,
+        "max_delay": 60.0
+    },
+    {
+        "x": 5206,
+        "y": 2842,
+        "min_delay": 60.0,
+        "max_delay": 60.0
+    },
+    {
+        "x": 5206,
+        "y": 2831,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5194,
+        "y": 2816,
+        "min_delay": 80.0,
+        "max_delay": 80.0
+    },
+    {
+        "x": 5205,
+        "y": 2830,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5205,
+        "y": 2838,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5189,
+        "y": 2830,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5182,
+        "y": 2827,
+        "min_delay": 60.0,
+        "max_delay": 60.0
+    },
+    {
+        "x": 5182,
+        "y": 2817,
+        "min_delay": 60.0,
+        "max_delay": 60.0
+    },
+    {
+        "x": 5182,
+        "y": 2809,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5186,
+        "y": 2805,
+        "min_delay": 60.0,
+        "max_delay": 60.0
+    },
+    {
+        "x": 5181,
+        "y": 2798,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5181,
+        "y": 2799,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5187,
+        "y": 2805,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5197,
+        "y": 2800,
+        "min_delay": 60.0,
+        "max_delay": 60.0
+    },
+    {
+        "x": 5211,
+        "y": 2800,
+        "min_delay": 60.0,
+        "max_delay": 60.0
+    },
+    {
+        "x": 5209,
+        "y": 2790,
+        "min_delay": 60.0,
+        "max_delay": 60.0
+    },
+    {
+        "x": 5200,
+        "y": 2790,
+        "min_delay": 60.0,
+        "max_delay": 60.0
+    },
+    {
+        "x": 5192,
+        "y": 2780,
+        "min_delay": 60.0,
+        "max_delay": 60.0
+    },
+    {
+        "x": 5200,
+        "y": 2780,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5210,
+        "y": 2778,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5221,
+        "y": 2778,
+        "min_delay": 60.0,
+        "max_delay": 60.0
+    },
+    {
+        "x": 5235,
+        "y": 2778,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5245,
+        "y": 2778,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5252,
+        "y": 2775,
+        "min_delay": 60.0,
+        "max_delay": 60.0
+    },
+    {
+        "x": 5256,
+        "y": 2778,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5263,
+        "y": 2780,
+        "min_delay": 60.0,
+        "max_delay": 60.0
+    },
+    {
+        "x": 5272,
+        "y": 2780,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5283,
+        "y": 2780,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5259,
+        "y": 2780,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5253,
+        "y": 2776,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5241,
+        "y": 2776,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5233,
+        "y": 2777,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5227,
+        "y": 2777,
+        "min_delay": 60.0,
+        "max_delay": 60.0
+    },
+    {
+        "x": 5218,
+        "y": 2779,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5209,
+        "y": 2783,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5212,
+        "y": 2784,
+        "min_delay": 60.0,
+        "max_delay": 60.0
+    },
+    {
+        "x": 5212,
+        "y": 2801,
+        "min_delay": 60.0,
+        "max_delay": 60.0
+    },
+    {
+        "x": 5212,
+        "y": 2811,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "local": "Vai para o portal",
+        "x": 5213,
+        "y": 2812,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "tolerance": 0
+    },
+    {
+        "x": 5213,
+        "y": 2792,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "tolerance": 0
+    },
+    {
+        "local": "Entra portal",
+        "x": 5229,
+        "y": 2790,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "tolerance": 0,
+        "moves_after": ["CLICKB"]
+    },
+    {
+        "local": "Vai para a room",
+        "x": 3842,
+        "y": 2893,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "tolerance": 0,
+        "moves_after": []
+    },
+    {
+        "local": "Vai para a room de Toten",
+        "x": 3842,
+        "y": 2893,
+        "min_delay": 20.0,
+        "max_delay": 20.0,
+        "tolerance": 0,
+        "moves_after": ["CLICKSTART"]
+    },
+    {
+        "local": "Restock",
+        "x": 195,
+        "y": 741,
+        "min_delay": 20.0,
+        "max_delay": 20.0,
+        "tolerance": 0,
+        "moves_after": ["CLICKBACK"]
+    }
+]

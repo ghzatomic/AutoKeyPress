@@ -32,10 +32,13 @@ movements = {
     'DIAGONAL_CIMA_ESQUERDA': [vg.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_UP,vg.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_LEFT],
     'DIAGONAL_BAIXO_ESQUERDA': [vg.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_DOWN,vg.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_LEFT],
     'DIAGONAL_BAIXO_DIREITA': [vg.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_DOWN,vg.XUSB_BUTTON.XUSB_GAMEPAD_DPAD_RIGHT],
-    'CLICK': vg.XUSB_BUTTON.XUSB_GAMEPAD_B,
+    'CLICKB': vg.XUSB_BUTTON.XUSB_GAMEPAD_B,
     'CLICKA': vg.XUSB_BUTTON.XUSB_GAMEPAD_A,
     'CLICKX': vg.XUSB_BUTTON.XUSB_GAMEPAD_X,
-    'CLICKY': vg.XUSB_BUTTON.XUSB_GAMEPAD_Y
+    'CLICKY': vg.XUSB_BUTTON.XUSB_GAMEPAD_Y,
+    'CLICKSTART': vg.XUSB_BUTTON.XUSB_GAMEPAD_START,
+    'CLICKBACK': vg.XUSB_BUTTON.XUSB_GAMEPAD_BACK,
+    'CLICKGUIDE': vg.XUSB_BUTTON.XUSB_GAMEPAD_GUIDE
 }
 
 BUTTON_MAPPING = {
@@ -254,10 +257,12 @@ def move_to_target_smart(uo_assist, target_x, target_y, step_delay_fn, tolerance
             else:
                 failed_moves.add(move_name)  # Registra que esse movimento falhou
 
+    if on_move_callback:
+        on_move_callback()
     print(f"🏁 Destino alcançado! Posição final: X={current_x}, Y={current_y} (Dentro da tolerância de {tolerance})")
 
 
-def load_movement_path_with_selection(save_folder="gravados", default_min_delay=0.2, default_max_delay=0.5, move_callback=None):
+def load_movement_path_with_selection(save_folder="gravados", default_min_delay=0.2, default_max_delay=0.5, move_callback_after=None, move_callback_before=None):
     """
     Lista todos os arquivos de movimentos gravados e permite ao usuário escolher um para carregar.
     Carrega os delays gravados ou usa os delays padrões.
@@ -306,12 +311,14 @@ def load_movement_path_with_selection(save_folder="gravados", default_min_delay=
     for entry in data:
         min_delay = entry.get("min_delay", default_min_delay)
         max_delay = entry.get("max_delay", default_max_delay)
+        tolerance = entry.get("tolerance", 1)
+        moves_after = entry.get("moves_after", [])
 
         # Criar uma função de delay dinâmico para cada movimento
         def step_delay_fn(min_d=min_delay, max_d=max_delay):
             return random.uniform(min_d, max_d)
 
-        path.append((entry["x"], entry["y"], step_delay_fn, move_callback))
+        path.append((entry["x"], entry["y"], step_delay_fn, move_callback_before,move_callback_after,tolerance,moves_after))
 
     print(f"📄 {len(path)} coordenadas carregadas do arquivo '{files[choice]}'")
     
@@ -440,7 +447,11 @@ def execute_movement_path(uo_assist, path, tolerance=2, stuck_threshold=3, step_
     print(f"Posição inicial: X={current_x}, Y={current_y}")
     print(f"Iniciando percurso... {len(path)} pontos no total")
 
-    for target_x, target_y, step_delay_fn, move_callback in path:
+    for target_x, target_y, step_delay_fn, move_callback_before, move_callback_after,tolerance_local,moves_after in path:
+        if move_callback_before:
+            move_callback_before()
+        if tolerance_local:
+            tolerance = tolerance_local
         if pause_flag:  # Checa novamente no “meio” do timeout
             print("Pausando por 40 segundos durante a espera...")
             time.sleep(40)
@@ -455,8 +466,13 @@ def execute_movement_path(uo_assist, path, tolerance=2, stuck_threshold=3, step_
             step_delay_fn=delay_fn,
             tolerance=tolerance,
             stuck_threshold=stuck_threshold,
-            on_move_callback=move_callback
+            on_move_callback=None
         )
+        if moves_after:
+            for move in moves_after:
+                pressiona_botao(movements[move], delay_ini=0.3)
+        if move_callback_after:
+            move_callback_after()
         if step_delay_fn:
             time.sleep(step_delay_fn())
     print("✅ Percurso completo!")
@@ -478,7 +494,8 @@ def random_sleep(min_seconds, max_seconds):
 def clica_loot(qtde=1,delay_ini=0.2):
     for i in range(qtde):
         # Simula o movimento no gamepad
-        pressiona_botao(movements["CLICK"],delay_ini=delay_ini)
+        print("Clicando loot ... ")
+        pressiona_botao(movements["CLICKY"],delay_ini=delay_ini)
 
 def pressiona_solta(btn,delay=0.3):
     pressiona_botao(btn,delay_end=delay)
