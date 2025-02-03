@@ -145,7 +145,7 @@ if __name__ == "__main__":
             return random.uniform(0.2, 0.3)
         
         def clica_loot_timer():
-            clica_loot(qtde=15)
+            clica_loot(qtde=10)
             random_sleep(0.1,0.2)
         
         def on_move_log():
@@ -167,10 +167,10 @@ if __name__ == "__main__":
                 while True:
                     print("Iniciando "+choice+" - Va para a tela")
                     time.sleep(3)
-                    execute_movement_path(uo_assist, path,stuck_threshold=3,tolerance=1) 
+                    execute_movement_path(uo_assist, path,stuck_threshold=2,tolerance=1) 
             else:
                 print("Iniciando "+choice+" - Va para a tela")
                 time.sleep(3)
-                execute_movement_path(uo_assist, path,stuck_threshold=3,tolerance=1)
+                execute_movement_path(uo_assist, path,stuck_threshold=2,tolerance=1)
     else:
         print("Opção inválida!")

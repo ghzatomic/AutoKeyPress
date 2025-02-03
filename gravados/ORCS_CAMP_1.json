@@ -3,8 +3,8 @@
         "local": "Restock",
         "x": 195,
         "y": 741,
-        "min_delay": 20.0,
-        "max_delay": 20.0,
+        "min_delay": 40.0,
+        "max_delay": 40.0,
         "tolerance": 0,
         "moves_after": ["CLICKBACK"]
     },
@@ -87,10 +87,11 @@
         "max_delay": 0.1
     },
     {
+        "local": "Quadradinho do meio",
         "x": 5194,
         "y": 2816,
-        "min_delay": 80.0,
-        "max_delay": 80.0
+        "min_delay": 110.0,
+        "max_delay": 110.0
     },
     {
         "x": 5205,
@@ -144,13 +145,28 @@
         "x": 5181,
         "y": 2799,
         "min_delay": 0.1,
-        "max_delay": 0.1
+        "max_delay": 0.1,
+        "tolerance":1
+    },
+    {
+        "x": 5183,
+        "y": 2804,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "tolerance":1
     },
     {
         "x": 5187,
         "y": 2805,
         "min_delay": 0.1,
         "max_delay": 0.1
+    },
+    {
+        "x": 5192,
+        "y": 2803,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "tolerance":1
     },
     {
         "x": 5197,
@@ -328,6 +344,24 @@
     },
     {
         "local": "Vai para a room",
+        "x": 3873,
+        "y": 2893,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "tolerance": 0,
+        "moves_after": []
+    },
+    {
+        "local": "Vai para a room",
+        "x": 3851,
+        "y": 2889,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "tolerance": 0,
+        "moves_after": []
+    },
+    {
+        "local": "Vai para a room",
         "x": 3842,
         "y": 2893,
         "min_delay": 0.1,
@@ -339,8 +373,8 @@
         "local": "Vai para a room de Toten",
         "x": 3842,
         "y": 2893,
-        "min_delay": 20.0,
-        "max_delay": 20.0,
+        "min_delay": 40.0,
+        "max_delay": 40.0,
         "tolerance": 0,
         "moves_after": ["CLICKSTART"]
     },
@@ -348,8 +382,8 @@
         "local": "Restock",
         "x": 195,
         "y": 741,
-        "min_delay": 20.0,
-        "max_delay": 20.0,
+        "min_delay": 40.0,
+        "max_delay": 40.0,
         "tolerance": 0,
         "moves_after": ["CLICKBACK"]
     }

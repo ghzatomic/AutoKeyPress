@@ -88,7 +88,7 @@ def move_away_from_wall(failed_moves):
 
     move_name = random.choice(available_moves)
     print(f"🚀 Tentando escapar com: {move_name}")
-    pressiona_botao(movements[move_name], delay_ini=0.5)
+    pressiona_botao(movements[move_name], delay_ini=random.uniform(0.5, 1))
 
 import random
 
