@@ -5,3 +5,6 @@ pygetwindow
 keyboard
 vgamepad
 inputs
+psutils
+tk
+pyinstaller
