@@ -1,5 +1,23 @@
 [
     {
+        "local": "Restock",
+        "x": 195,
+        "y": 741,
+        "min_delay": 15.0,
+        "max_delay": 15.0,
+        "tolerance": 0,
+        "moves_after": ["CLICKBACK"]
+    },
+    {
+        "local": "Vai p floresta",
+        "x": 195,
+        "y": 741,
+        "min_delay": 5.0,
+        "max_delay": 5.0,
+        "tolerance": 0,
+        "moves_after": ["CLICKA"]
+    },
+    {
         "x": 490,
         "y": 2125,
         "min_delay": 0.1,
@@ -1577,5 +1595,27 @@
         "y": 2126,
         "min_delay": 0.1,
         "max_delay": 0.1
+    },
+
+    {
+        "local": "Vai Embora",
+        
+        "x": 495,
+        "y": 2126,
+        "min_delay": 40.0,
+        "max_delay": 40.0,
+        "tolerance": 0,
+        "moves_after": [
+            "CLICKB"
+        ]
+    },
+    {
+        "local": "Vai para a room de Toten",
+        "x": 3842,
+        "y": 2893,
+        "min_delay": 40.0,
+        "max_delay": 40.0,
+        "tolerance": 0,
+        "moves_after": ["CLICKSTART"]
     }
 ]

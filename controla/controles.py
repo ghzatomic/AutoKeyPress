@@ -122,25 +122,22 @@ def move_away_from_wall_long(failed_moves):
         pressiona_botao(movements[move_name], delay_ini=0.2)
 
 
-def move_to_target_smart(uo_assist, target_x, target_y, step_delay_fn, tolerance=2, stuck_threshold=10, on_move_callback=None, on_stuck_callback=None, max_attempts=5):
+def move_to_target_smart(uo_assist, target_x, target_y, step_delay_fn,
+                         tolerance=2,
+                         stuck_threshold=5,   # Quantas posições no histórico para detectar "travado"
+                         on_move_callback=None,
+                         on_stuck_callback=None,
+                         max_attempts=5):
     """
-    Move o personagem até uma posição aproximada de (target_x, target_y) considerando uma tolerância e detecção de bloqueios.
-
-    Args:
-        uo_assist (UOAssistConnector): Instância do UOAssist para obter coordenadas.
-        target_x (int): Coordenada X de destino.
-        target_y (int): Coordenada Y de destino.
-        step_delay_fn (function): Função que retorna o tempo de delay entre os movimentos.
-        tolerance (int): Distância aceitável do destino para considerar como "chegou".
-        stuck_threshold (int): Quantidade de vezes que o personagem precisa repetir a mesma posição para ser considerado preso.
-        on_move_callback (function, optional): Função chamada a cada movimento (pode ser None).
-        on_stuck_callback (function, optional): Função chamada quando o personagem fica preso (pode ser None).
-        max_attempts (int): Número máximo de tentativas sem progresso antes de chamar `on_stuck_callback`.
+    Move o personagem até (target_x, target_y) com tolerância e detecção de bloqueios.
+    - 'stuck_pos_history': quantas posições consecutivas iguais antes de considerar "preso".
+    - 'max_attempts': se ficar 'n' tentativas sem avançar, também é considerado "preso".
     """
 
     global pause_flag
-    pause_flag = False
+    pause_flag = False  # Reseta a flag de pausa ao iniciar
 
+    # Verifica se conseguiu anexar ao UOAssist
     if not uo_assist.attach_to_assistant():
         print("Erro: Não foi possível anexar ao UOAssist.")
         return
@@ -151,14 +148,18 @@ def move_to_target_smart(uo_assist, target_x, target_y, step_delay_fn, tolerance
         return
     
     current_x, current_y = coords
-    last_positions = []  # Histórico das últimas posições
-    no_progress_count = 0
-    failed_moves = set()  # Guarda movimentos que não funcionaram
-
     print(f"Posição inicial: X={current_x}, Y={current_y}")
-    print(f"Movendo para: X={target_x}, Y={target_y} com tolerância de {tolerance} e limite de {stuck_threshold} repetições para detectar bloqueio.")
+    print(f"Movendo para: X={target_x}, Y={target_y} (tolerância = {tolerance}).")
+    print(f"Detectando travamento caso {stuck_threshold} leituras sejam iguais ou {max_attempts} tentativas sem progresso.")
 
-    # Lista de direções possíveis com ajustes corretos de eixo
+    # Histórico das últimas posições para detectar se está "parado" no mesmo lugar
+    last_positions = []
+    # Contador de tentativas sem progresso
+    no_progress_count = 0
+    # Movimentos que falharam recentemente
+    failed_moves = set()
+
+    # Lista de direções (ajustes conforme seu jogo)
     directions = [
         ("DIAGONAL_BAIXO_DIREITA", 2, 1),
         ("DIAGONAL_BAIXO_ESQUERDA", -1, 2),
@@ -170,96 +171,113 @@ def move_to_target_smart(uo_assist, target_x, target_y, step_delay_fn, tolerance
         ("UP", -1, -1)
     ]
 
+    # Loop principal: continua enquanto estiver fora da "tolerância" do destino
     while abs(current_x - target_x) > tolerance or abs(current_y - target_y) > tolerance:
+        # Sempre atualiza a posição
         coords = uo_assist.get_character_coords()
         if not coords:
             print("Erro: Não foi possível obter a posição atual.")
             return
         updated_x, updated_y = coords
-        if pause_flag:  # Checa novamente no “meio” do timeout
-            print("Pausando por 40 segundos durante a espera...")
+
+        # Se a flag de pausa estiver marcada, pausar 40s
+        if pause_flag:
+            print("Pausando por 40 segundos...")
             time.sleep(40)
             pause_flag = False
-        # Adiciona a posição ao histórico das últimas `stuck_threshold` posições
+
+        # Adiciona a posição atual ao histórico
         last_positions.append((updated_x, updated_y))
         if len(last_positions) > stuck_threshold:
-            last_positions.pop(0)
+            last_positions.pop(0)  # Mantém só as últimas 'stuck_pos_history'
 
-        # 🚨 Se o personagem está preso tentando os mesmos movimentos
-        if last_positions.count((updated_x, updated_y)) >= stuck_threshold:
-            print(f"🚨 Personagem preso na posição ({updated_x}, {updated_y}). Tentando escapar...")
-
+        # --- DETECÇÃO 1: Mesmo ponto por 'stuck_pos_history' leituras ---
+        # Se atingimos o tamanho do histórico e todas as posições são iguais (set com 1 único valor)
+        if len(last_positions) == stuck_threshold and len(set(last_positions)) == 1:
+            print(f"🚨 Personagem preso na posição {last_positions[0]} (repetido {stuck_threshold} vezes). Tentando escapar...")
+            # Chama callback ou movimentação de desbloqueio
             if on_stuck_callback:
                 on_stuck_callback(updated_x, updated_y, failed_moves)
             else:
-                move_away_from_wall(failed_moves)
+                move_away_from_wall(failed_moves)  # Implemente a seu critério
 
-            no_progress_count = 0  # Resetar contador após tentativa de desbloqueio
-            failed_moves.clear()  # Reseta a lista de movimentos falhos
-            continue  # Reinicia a tentativa de movimento após desbloqueio
+            # Limpa histórico e resets
+            last_positions.clear()
+            no_progress_count = 0
+            failed_moves.clear()
+            continue
 
+        # Atualiza current_x, current_y
         current_x, current_y = updated_x, updated_y
 
-        # Verifica se o personagem realmente avançou
+        # --- DETECÇÃO 2: Várias tentativas sem progresso (no_progress_count) ---
         if len(last_positions) >= 2 and last_positions[-1] == last_positions[-2]:
+            # Se a posição atual é igual à última (não moveu nessa iteração)
             no_progress_count += 1
         else:
-            no_progress_count = 0  # Resetar contador se o personagem avançar
+            no_progress_count = 0
 
-        # ⚠ Se ficarmos presos por muito tempo, chamamos a função de desbloqueio
         if no_progress_count >= max_attempts:
-            print(f"⚠ O personagem não está avançando na posição ({current_x}, {current_y}). Tentando outra estratégia...")
-
+            print(f"⚠ O personagem não está avançando na posição ({current_x}, {current_y}). Tentando desbloquear...")
             if on_stuck_callback:
                 on_stuck_callback(current_x, current_y, failed_moves)
             else:
                 move_away_from_wall(failed_moves)
 
-            no_progress_count = 0  # Resetar contador após tentativa de desbloqueio
-            failed_moves.clear()  # Reseta a lista de movimentos falhos
-            continue  # Tenta se mover novamente após desbloquear
+            last_positions.clear()  # Opcional: limpar histórico
+            no_progress_count = 0
+            failed_moves.clear()
+            continue
 
-        # Ordena as direções priorizando a que se aproxima mais rápido do alvo
+        # --- Tenta mover em direção ao alvo, priorizando direções que aproximam mais ---
         directions.sort(key=lambda d: abs((current_x + d[1]) - target_x) + abs((current_y + d[2]) - target_y))
-        
+
         moved = False
         for move_name, dx, dy in directions:
             new_x = current_x + dx
             new_y = current_y + dy
 
+            # Evita tentativas que falharam
             if (new_x, new_y) in failed_moves:
-                continue  # Evita tentar um movimento que já falhou recentemente
-            
-            if pause_flag:  # Checa novamente no “meio” do timeout
-                print("Pausando por 40 segundos durante a espera...")
+                continue
+
+            # Verifica novamente se pausou (entre cada tentativa)
+            if pause_flag:
+                print("Pausando por 40 segundos...")
                 time.sleep(40)
                 pause_flag = False
 
+            # Aperta a tecla/função de movimento (ajuste para seu jogo)
             pressiona_botao(movements[move_name], delay_ini=step_delay_fn())
 
-            # Chama a função de callback após o movimento (se houver)
-            #if on_move_callback:
-            #    on_move_callback(current_x, current_y, target_x, target_y)
+            # (Opcional) callback após cada movimento
+            # if on_move_callback:
+            #     on_move_callback(current_x, current_y, target_x, target_y)
 
-            # Atualiza a posição real novamente após o movimento
+            # Lê novamente a posição depois do movimento
             coords = uo_assist.get_character_coords()
             if not coords:
                 print("Erro ao atualizar posição.")
                 return
             updated_x, updated_y = coords
 
-            #print(f"Posição atual: X={updated_x}, Y={updated_y}")
-
-            # Se o personagem realmente se moveu, continuar o loop
-            if (updated_x, updated_y) != last_positions[-1]:
+            # Se mudou de posição efetivamente, sai do loop de direções
+            if (updated_x, updated_y) != (current_x, current_y):
                 moved = True
-                break  # Sai do loop e continua o próximo movimento
+                break
             else:
-                failed_moves.add(move_name)  # Registra que esse movimento falhou
+                # Se não se mexeu, marca esse movimento como falho
+                failed_moves.add((new_x, new_y))
 
+        # Se por algum motivo não conseguiu se mover em nenhuma das direções,
+        # você pode tomar alguma ação aqui, se achar necessário.
+
+    # Se chegou até aqui, significa que estamos dentro da tolerância
     if on_move_callback:
-        on_move_callback()
-    print(f"🏁 Destino alcançado! Posição final: X={current_x}, Y={current_y} (Dentro da tolerância de {tolerance})")
+        on_move_callback()  # ou chame com parâmetros se preferir
+
+    print(f"🏁 Destino alcançado! Posição final: X={current_x}, Y={current_y} (tolerância = {tolerance})")
+
 
 
 def load_movement_path_with_selection(save_folder="gravados", default_min_delay=0.2, default_max_delay=0.5, move_callback_after=None, move_callback_before=None):

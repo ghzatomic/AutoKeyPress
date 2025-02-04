@@ -1,13 +1,5 @@
 [
-    {
-        "local": "Vai para a room",
-        "x": 3875,
-        "y": 2893,
-        "min_delay": 0.1,
-        "max_delay": 0.1,
-        "tolerance": 0,
-        "moves_after": []
-    },
+   
     {
         "local": "Vai para a room",
         "x": 3873,

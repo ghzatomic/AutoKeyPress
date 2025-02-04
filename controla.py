@@ -167,10 +167,10 @@ if __name__ == "__main__":
                 while True:
                     print("Iniciando "+choice+" - Va para a tela")
                     time.sleep(3)
-                    execute_movement_path(uo_assist, path,stuck_threshold=2,tolerance=1) 
+                    execute_movement_path(uo_assist, path,stuck_threshold=5,tolerance=1) 
             else:
                 print("Iniciando "+choice+" - Va para a tela")
                 time.sleep(3)
-                execute_movement_path(uo_assist, path,stuck_threshold=2,tolerance=1)
+                execute_movement_path(uo_assist, path,stuck_threshold=5,tolerance=1)
     else:
         print("Opção inválida!")
