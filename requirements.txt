@@ -6,5 +6,6 @@ keyboard
 vgamepad
 inputs
 psutils
+pynput
 tk
 pyinstaller

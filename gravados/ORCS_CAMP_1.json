@@ -18,48 +18,57 @@
         "moves_after": ["CLICKA"]
     },
     {
+        "local": "Inicia macro geral",
         "x": 1914,
         "y": 1129,
-        "min_delay": 0.1,
-        "max_delay": 0.1,
+        "min_delay": 5.0,
+        "max_delay": 5.0,
+        "tolerance": 0,
+        "moves_after": ["CLICKRSHOULDER"]
+    },
+    {
+        "x": 1914,
+        "y": 1129,
+        "min_delay": 0.2,
+        "max_delay": 0.2,
         "tolerance": 0,
         "moves_after": ["DIAGONAL_CIMA_ESQUERDA","DIAGONAL_CIMA_ESQUERDA","DIAGONAL_CIMA_ESQUERDA","DIAGONAL_CIMA_ESQUERDA"]
     },
     {
         "x": 5243,
         "y": 2820,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5243,
         "y": 2812,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5259,
         "y": 2812,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5259,
         "y": 2827,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5234,
         "y": 2827,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5234,
         "y": 2810,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     { 
         "local": "Comeca a dungeon, saida ponte",
@@ -83,8 +92,8 @@
     {
         "x": 5206,
         "y": 2831,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "local": "Quadradinho do meio",
@@ -96,20 +105,20 @@
     {
         "x": 5205,
         "y": 2830,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5205,
         "y": 2838,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5189,
         "y": 2830,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5182,
@@ -126,8 +135,8 @@
     {
         "x": 5182,
         "y": 2809,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5186,
@@ -138,34 +147,34 @@
     {
         "x": 5181,
         "y": 2798,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5181,
         "y": 2799,
-        "min_delay": 0.1,
-        "max_delay": 0.1,
+        "min_delay": 0.2,
+        "max_delay": 0.2,
         "tolerance":1
     },
     {
         "x": 5183,
         "y": 2804,
-        "min_delay": 0.1,
-        "max_delay": 0.1,
+        "min_delay": 0.2,
+        "max_delay": 0.2,
         "tolerance":1
     },
     {
         "x": 5187,
         "y": 2805,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5192,
         "y": 2803,
-        "min_delay": 0.1,
-        "max_delay": 0.1,
+        "min_delay": 0.2,
+        "max_delay": 0.2,
         "tolerance":1
     },
     {
@@ -201,14 +210,14 @@
     {
         "x": 5200,
         "y": 2780,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5210,
         "y": 2778,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5221,
@@ -219,14 +228,14 @@
     {
         "x": 5235,
         "y": 2778,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5245,
         "y": 2778,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5252,
@@ -237,8 +246,8 @@
     {
         "x": 5256,
         "y": 2778,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5263,
@@ -249,38 +258,38 @@
     {
         "x": 5272,
         "y": 2780,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5283,
         "y": 2780,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5259,
         "y": 2780,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5253,
         "y": 2776,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5241,
         "y": 2776,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5233,
         "y": 2777,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5227,
@@ -291,14 +300,14 @@
     {
         "x": 5218,
         "y": 2779,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5209,
         "y": 2783,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "x": 5212,
@@ -315,30 +324,30 @@
     {
         "x": 5212,
         "y": 2811,
-        "min_delay": 0.1,
-        "max_delay": 0.1
+        "min_delay": 0.2,
+        "max_delay": 0.2
     },
     {
         "local": "Vai para o portal",
         "x": 5213,
         "y": 2812,
-        "min_delay": 0.1,
-        "max_delay": 0.1,
+        "min_delay": 0.2,
+        "max_delay": 0.2,
         "tolerance": 0
     },
     {
         "x": 5213,
         "y": 2792,
-        "min_delay": 0.1,
-        "max_delay": 0.1,
+        "min_delay": 0.2,
+        "max_delay": 0.2,
         "tolerance": 0
     },
     {
         "local": "Entra portal",
         "x": 5229,
         "y": 2790,
-        "min_delay": 0.1,
-        "max_delay": 0.1,
+        "min_delay": 0.2,
+        "max_delay": 0.2,
         "tolerance": 0,
         "moves_after": ["CLICKB"]
     },
@@ -346,8 +355,8 @@
         "local": "Vai para a room",
         "x": 3873,
         "y": 2893,
-        "min_delay": 0.1,
-        "max_delay": 0.1,
+        "min_delay": 0.2,
+        "max_delay": 0.2,
         "tolerance": 0,
         "moves_after": []
     },
@@ -355,8 +364,8 @@
         "local": "Vai para a room",
         "x": 3851,
         "y": 2889,
-        "min_delay": 0.1,
-        "max_delay": 0.1,
+        "min_delay": 0.2,
+        "max_delay": 0.2,
         "tolerance": 0,
         "moves_after": []
     },
@@ -364,8 +373,8 @@
         "local": "Vai para a room",
         "x": 3842,
         "y": 2893,
-        "min_delay": 0.1,
-        "max_delay": 0.1,
+        "min_delay": 0.2,
+        "max_delay": 0.2,
         "tolerance": 0,
         "moves_after": []
     },

@@ -1,22 +1,13 @@
-import pygetwindow as gw
-import time
 import keyboard
-import pydirectinput
-from pywinauto import application
-from pywinauto.keyboard import SendKeys
+import time
 
-def main():
+# Aguarda 2 segundos antes de enviar a tecla (para dar tempo de você focar em outra janela, por exemplo)
+time.sleep(2)
 
-    # Encontre ou inicie a aplicação
-    app = application.connect(title="Roblox")
-
-    # Selecione a janela específica
-    window = app.window(title="Roblox")
-
-    # Envie a sequência de caracteres para a janela em segundo plano
-    texto = "wwwwwwwwwwwww"
-    window.type_keys(texto)
-
-
-if __name__ == "__main__":
-    main()
+# Envia a seta para cima
+keyboard.send('up')
+keyboard.send('up')
+keyboard.send('up')
+keyboard.send('up')
+keyboard.send('up')
+keyboard.send('up')
