@@ -1,8 +1,8 @@
 [
     {
         "local": "Vai p dungeon",
-        "x": 5237,
-        "y": 2825,
+        "x": 474,
+        "y": 2133,
         "min_delay": 5.0,
         "max_delay": 5.0,
         "tolerance": 0,

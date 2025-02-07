@@ -112,12 +112,14 @@
         "exec_callback_before": false
     },
     {
+        "local": "Entrada nv 2",
         "x": 5787,
         "y": 1328,
         "min_delay": 0.1,
         "max_delay": 0.1,
         "exec_callback_after": false,
-        "exec_callback_before": false
+        "exec_callback_before": false,
+        "moves_after": ["DIAGONAL_CIMA_ESQUERDA","DIAGONAL_CIMA_DIREITA","DIAGONAL_CIMA_ESQUERDA","DIAGONAL_CIMA_DIREITA","DIAGONAL_CIMA_ESQUERDA"]
     },
     {
         "x": 5686,
@@ -184,19 +186,13 @@
         "exec_callback_before": false
     },
     {
+        "local":"Entrada salinha",
         "x": 5685,
         "y": 1277,
         "min_delay": 0.1,
         "max_delay": 0.1,
         "exec_callback_after": false,
-        "exec_callback_before": false
-    },
-    {
-        "x": 5699,
-        "y": 1476,
-        "min_delay": 0.1,
-        "max_delay": 0.1,
-        "exec_callback_after": false,
-        "exec_callback_before": false
+        "exec_callback_before": false,
+        "moves_after": ["DIAGONAL_BAIXO_DIREITA","DIAGONAL_BAIXO_DIREITA","DIAGONAL_BAIXO_DIREITA"]
     }
 ]
