@@ -15,6 +15,7 @@ class UOAssistConnector:
         self.WM_USER = 0x0400
         self.MSG_SEND_ATTACH_TO_UO = self.WM_USER + 200
         self.MSG_SEND_GET_LOCATION_INFO = self.WM_USER + 202
+        self.MSG_SEND_START_SCRIPT = self.WM_USER + 210
         self.SendMessage = self.user32.SendMessageW
         self.SendMessageA = self.user32.SendMessageA
         self.GetWindowThreadProcessId = self.user32.GetWindowThreadProcessId
@@ -71,6 +72,9 @@ class UOAssistConnector:
         except psutil.NoSuchProcess:
             print("Processo não encontrado.")
             return None
+        
+    def get_uoassist_hwnd(self):
+        return self.uoassist_hwnd
 
     def attach_to_assistant(self):
         if self.isAttached:

@@ -1,0 +1,34 @@
+{
+  "RIGHT": [
+    1,
+    -1
+  ],
+  "LEFT": [
+    -1,
+    1
+  ],
+  "UP": [
+    -1,
+    -1
+  ],
+  "DOWN": [
+    1,
+    1
+  ],
+  "DIAGONAL_BAIXO_DIREITA": [
+    1,
+    0
+  ],
+  "DIAGONAL_BAIXO_ESQUERDA": [
+    0,
+    1
+  ],
+  "DIAGONAL_CIMA_DIREITA": [
+    0,
+    0
+  ],
+  "DIAGONAL_CIMA_ESQUERDA": [
+    -1,
+    0
+  ]
+}

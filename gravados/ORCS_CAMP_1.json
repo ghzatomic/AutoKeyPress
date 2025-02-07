@@ -3,10 +3,10 @@
         "local": "Restock",
         "x": 195,
         "y": 741,
-        "min_delay": 40.0,
-        "max_delay": 40.0,
+        "min_delay": 5.0,
+        "max_delay": 5.0,
         "tolerance": 0,
-        "moves_after": ["CLICKBACK"]
+        "moves_after": ["="]
     },
     {
         "local": "Vai p dungeon",
@@ -15,7 +15,7 @@
         "min_delay": 5.0,
         "max_delay": 5.0,
         "tolerance": 0,
-        "moves_after": ["CLICKA"]
+        "moves_after": ["m"]
     },
     {
         "local": "Inicia macro geral",
@@ -24,7 +24,7 @@
         "min_delay": 5.0,
         "max_delay": 5.0,
         "tolerance": 0,
-        "moves_after": ["CLICKRSHOULDER"]
+        "moves_after": ["1"]
     },
     {
         "x": 1914,
@@ -385,7 +385,7 @@
         "min_delay": 40.0,
         "max_delay": 40.0,
         "tolerance": 0,
-        "moves_after": ["CLICKSTART"]
+        "moves_after": ["-"]
     },
     {
         "local": "Restock",
@@ -394,6 +394,6 @@
         "min_delay": 40.0,
         "max_delay": 40.0,
         "tolerance": 0,
-        "moves_after": ["CLICKBACK"]
+        "moves_after": ["="]
     }
 ]

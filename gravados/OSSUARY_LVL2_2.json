@@ -38,10 +38,8 @@
     {
         "x": 5710,
         "y": 1471,
-        "min_delay": 0.1,
-        "max_delay": 0.1,
-        "exec_callback_after": false,
-        "exec_callback_before": false
+        "min_delay": 20.0,
+        "max_delay": 20.0
     },
     {
         "x": 5713,
@@ -79,27 +77,21 @@
         "local": "Geleca meio",
         "x": 5729,
         "y": 1449,
-        "min_delay": 0.1,
-        "max_delay": 0.1,
-        "exec_callback_after": false,
-        "exec_callback_before": false,
+        "min_delay": 30.1,
+        "max_delay": 30.1,
         "tolerance": 2
     },
     {
         "x": 5721,
         "y": 1451,
-        "min_delay": 0.1,
-        "max_delay": 0.1,
-        "exec_callback_after": false,
-        "exec_callback_before": false
+        "min_delay": 30,
+        "max_delay": 30
     },
     {
         "x": 5712,
         "y": 1451,
         "min_delay": 0.1,
-        "max_delay": 0.1,
-        "exec_callback_after": false,
-        "exec_callback_before": false
+        "max_delay": 0.1
     },
     {
         "x": 5712,
