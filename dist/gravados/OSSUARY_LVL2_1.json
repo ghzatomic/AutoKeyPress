@@ -1,0 +1,215 @@
+[
+    {
+        "x": 5698,
+        "y": 1470,
+        "min_delay": 0.2,
+        "max_delay": 0.2,
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "x": 5708,
+        "y": 1470,
+        "min_delay": 40.0,
+        "max_delay": 40.0
+    },
+    {
+        "x": 5708,
+        "y": 1475,
+        "min_delay": 0.2,
+        "max_delay": 0.2,
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "x": 5708,
+        "y": 1481,
+        "min_delay": 40.0,
+        "max_delay": 40.0
+    },
+    {
+        "x": 5722,
+        "y": 1481,
+        "min_delay": 0.2,
+        "max_delay": 0.2,
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "x": 5722,
+        "y": 1472,
+        "min_delay": 40.0,
+        "max_delay": 40.0
+    },
+    {
+        "x": 5721,
+        "y": 1472,
+        "min_delay": 40.0,
+        "max_delay": 40.0
+    },
+    {
+        "x": 5723,
+        "y": 1476,
+        "min_delay": 0.2,
+        "max_delay": 0.2,
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "x": 5712,
+        "y": 1476,
+        "min_delay": 40.0,
+        "max_delay": 40.0
+    },
+    {
+        "x": 5712,
+        "y": 1469,
+        "min_delay": 40.0,
+        "max_delay": 40.0
+    },
+    {
+        "x": 5712,
+        "y": 1458,
+        "min_delay": 0.2,
+        "max_delay": 0.2,
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "x": 5712,
+        "y": 1451,
+        "min_delay": 0.2,
+        "max_delay": 0.2,
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "x": 5715,
+        "y": 1451,
+        "min_delay": 40.0,
+        "max_delay": 40.0
+    },
+    {
+        "local": "gosmas",
+        "x": 5730,
+        "y": 1449,
+        "min_delay": 120.0,
+        "max_delay": 120.0
+    },
+    {
+        "x": 5728,
+        "y": 1449,
+        "min_delay": 0.2,
+        "max_delay": 0.2,
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "x": 5712,
+        "y": 1450,
+        "min_delay": 40.0,
+        "max_delay": 40.0
+    },
+    {
+        "x": 5712,
+        "y": 1459,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5712,
+        "y": 1467,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5713,
+        "y": 1472,
+        "min_delay": 40.0,
+        "max_delay": 40.0
+    },
+    {
+        "x": 5717,
+        "y": 1472,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5721,
+        "y": 1472,
+        "min_delay": 40.0,
+        "max_delay": 40.0
+    },
+    {
+        "x": 5713,
+        "y": 1476,
+        "min_delay": 40.0,
+        "max_delay": 40.0
+    },
+    {
+        "x": 5713,
+        "y": 1460,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5713,
+        "y": 1451,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5719,
+        "y": 1451,
+        "min_delay": 40.0,
+        "max_delay": 40.0
+    },
+    {
+        "x": 5728,
+        "y": 1449,
+        "min_delay": 40.0,
+        "max_delay": 40.0
+    },
+    {
+        "x": 5730,
+        "y": 1445,
+        "min_delay": 40.0,
+        "max_delay": 40.0
+    },
+    {
+        "x": 5721,
+        "y": 1451,
+        "min_delay": 40.0,
+        "max_delay": 40.0
+    },
+    {
+        "x": 5712,
+        "y": 1451,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5712,
+        "y": 1464,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    },
+    {
+        "x": 5712,
+        "y": 1476,
+        "min_delay": 40.0,
+        "max_delay": 40.0
+    },
+    {
+        "x": 5718,
+        "y": 1476,
+        "min_delay": 40.0,
+        "max_delay": 40.0
+    },
+    {
+        "x": 5698,
+        "y": 1476,
+        "min_delay": 0.1,
+        "max_delay": 0.1
+    }
+]

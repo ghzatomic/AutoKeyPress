@@ -1,0 +1,282 @@
+[
+    {
+        "x": 5437,
+        "y": 1361,
+        "min_delay": 180.0,
+        "max_delay": 180.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5437,
+        "y": 1364,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5445,
+        "y": 1364,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "x": 5445,
+        "y": 1351,
+        "min_delay": 180.0,
+        "max_delay": 180.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5445,
+        "y": 1357,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5445,
+        "y": 1365,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "x": 5450,
+        "y": 1365,
+        "min_delay": 180.0,
+        "max_delay": 180.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5451,
+        "y": 1360,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5455,
+        "y": 1360,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "x": 5455,
+        "y": 1351,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "x": 5470,
+        "y": 1351,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "x": 5470,
+        "y": 1355,
+        "min_delay": 180.0,
+        "max_delay": 180.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5470,
+        "y": 1373,
+        "min_delay": 180.0,
+        "max_delay": 180.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5470,
+        "y": 1380,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5484,
+        "y": 1380,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "x": 5495,
+        "y": 1374,
+        "min_delay": 180.0,
+        "max_delay": 180.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5500,
+        "y": 1366,
+        "min_delay": 180.0,
+        "max_delay": 180.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5506,
+        "y": 1366,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5515,
+        "y": 1366,
+        "min_delay": 180.0,
+        "max_delay": 180.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5523,
+        "y": 1366,
+        "min_delay": 180.0,
+        "max_delay": 180.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5529,
+        "y": 1366,
+        "min_delay": 180.0,
+        "max_delay": 180.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5527,
+        "y": 1362,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5512,
+        "y": 1367,
+        "min_delay": 180.0,
+        "max_delay": 180.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5498,
+        "y": 1367,
+        "min_delay": 200.0,
+        "max_delay": 200.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5474,
+        "y": 1367,
+        "min_delay": 180.0,
+        "max_delay": 180.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5461,
+        "y": 1369,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5456,
+        "y": 1365,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "x": 5445,
+        "y": 1365,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "x": 5445,
+        "y": 1354,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "x": 5445,
+        "y": 1345,
+        "min_delay": 180.0,
+        "max_delay": 180.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5441,
+        "y": 1339,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": true,
+        "exec_callback_before": true
+    },
+    {
+        "x": 5430,
+        "y": 1339,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "x": 5420,
+        "y": 1330,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "x": 5421,
+        "y": 1322,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "x": 5421,
+        "y": 1319,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    }
+]

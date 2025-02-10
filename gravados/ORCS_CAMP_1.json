@@ -3,19 +3,23 @@
         "local": "Restock",
         "x": 195,
         "y": 741,
-        "min_delay": 5.0,
-        "max_delay": 5.0,
+        "min_delay": 15.0,
+        "max_delay": 15.0,
         "tolerance": 0,
-        "moves_after": ["="]
+        "moves_after": ["="],
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
-        "local": "Vai p dungeon",
+        "local": "Vai p dungeon (AGUARDA MANA)",
         "x": 195,
         "y": 741,
-        "min_delay": 5.0,
-        "max_delay": 5.0,
+        "min_delay": 10.0,
+        "max_delay": 10.0,
         "tolerance": 0,
-        "moves_after": ["m"]
+        "moves_after": ["m"],
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "local": "Inicia macro geral",
@@ -24,376 +28,459 @@
         "min_delay": 5.0,
         "max_delay": 5.0,
         "tolerance": 0,
-        "moves_after": ["1"]
+        "moves_after": ["1"],
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 1914,
         "y": 1129,
-        "min_delay": 0.2,
-        "max_delay": 0.2,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
         "tolerance": 0,
-        "moves_after": ["DIAGONAL_CIMA_ESQUERDA","DIAGONAL_CIMA_ESQUERDA","DIAGONAL_CIMA_ESQUERDA","DIAGONAL_CIMA_ESQUERDA"]
+        "moves_after": ["DIAGONAL_CIMA_ESQUERDA","DIAGONAL_CIMA_ESQUERDA","DIAGONAL_CIMA_ESQUERDA","DIAGONAL_CIMA_ESQUERDA"],
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5243,
         "y": 2820,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5243,
         "y": 2812,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5259,
         "y": 2812,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5259,
         "y": 2827,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5234,
         "y": 2827,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5234,
         "y": 2810,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     { 
         "local": "Comeca a dungeon, saida ponte",
         "x": 5213,
         "y": 2810,
-        "min_delay": 60.0,
-        "max_delay": 60.0
+        "min_delay": 20.0,
+        "max_delay": 20.0
     },
     {
         "x": 5210,
         "y": 2831,
-        "min_delay": 60.0,
-        "max_delay": 60.0
+        "min_delay": 20.0,
+        "max_delay": 20.0
     },
     {
         "x": 5206,
         "y": 2842,
-        "min_delay": 60.0,
-        "max_delay": 60.0
+        "min_delay": 20.0,
+        "max_delay": 20.0
     },
     {
         "x": 5206,
         "y": 2831,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "local": "Quadradinho do meio",
         "x": 5194,
         "y": 2816,
         "min_delay": 110.0,
-        "max_delay": 110.0
+        "max_delay": 110.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "moves_after": ["MOUSE_CLICK_LEFT","MOUSE_CLICK_LEFT","MOUSE_CLICK_LEFT","MOUSE_CLICK_LEFT","MOUSE_CLICK_LEFT"]
     },
     {
         "x": 5205,
         "y": 2830,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5205,
         "y": 2838,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5189,
         "y": 2830,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5182,
         "y": 2827,
-        "min_delay": 60.0,
-        "max_delay": 60.0
+        "min_delay": 20.0,
+        "max_delay": 20.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "moves_after": ["MOUSE_CLICK_LEFT","MOUSE_CLICK_LEFT","MOUSE_CLICK_LEFT","MOUSE_CLICK_LEFT","MOUSE_CLICK_LEFT"]
     },
     {
         "x": 5182,
         "y": 2817,
-        "min_delay": 60.0,
-        "max_delay": 60.0
+        "min_delay": 20.0,
+        "max_delay": 20.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "moves_after": ["MOUSE_CLICK_LEFT","MOUSE_CLICK_LEFT","MOUSE_CLICK_LEFT","MOUSE_CLICK_LEFT","MOUSE_CLICK_LEFT"]
     },
     {
         "x": 5182,
         "y": 2809,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5186,
         "y": 2805,
-        "min_delay": 60.0,
-        "max_delay": 60.0
+        "min_delay": 20.0,
+        "max_delay": 20.0
     },
     {
         "x": 5181,
         "y": 2798,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5181,
         "y": 2799,
-        "min_delay": 0.2,
-        "max_delay": 0.2,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
         "tolerance":1
     },
     {
         "x": 5183,
         "y": 2804,
-        "min_delay": 0.2,
-        "max_delay": 0.2,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
         "tolerance":1
     },
     {
         "x": 5187,
         "y": 2805,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5192,
         "y": 2803,
-        "min_delay": 0.2,
-        "max_delay": 0.2,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
         "tolerance":1
     },
     {
         "x": 5197,
         "y": 2800,
-        "min_delay": 60.0,
-        "max_delay": 60.0
+        "min_delay": 20.0,
+        "max_delay": 20.0
     },
     {
         "x": 5211,
         "y": 2800,
-        "min_delay": 60.0,
-        "max_delay": 60.0
+        "min_delay": 20.0,
+        "max_delay": 20.0
     },
     {
         "x": 5209,
         "y": 2790,
-        "min_delay": 60.0,
-        "max_delay": 60.0
+        "min_delay": 20.0,
+        "max_delay": 20.0
     },
     {
         "x": 5200,
         "y": 2790,
-        "min_delay": 60.0,
-        "max_delay": 60.0
+        "min_delay": 20.0,
+        "max_delay": 20.0
     },
     {
         "x": 5192,
         "y": 2780,
-        "min_delay": 60.0,
-        "max_delay": 60.0
+        "min_delay": 20.0,
+        "max_delay": 20.0
     },
     {
         "x": 5200,
         "y": 2780,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5210,
         "y": 2778,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5221,
         "y": 2778,
-        "min_delay": 60.0,
-        "max_delay": 60.0
+        "min_delay": 20.0,
+        "max_delay": 20.0
     },
     {
         "x": 5235,
         "y": 2778,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5245,
         "y": 2778,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5252,
         "y": 2775,
-        "min_delay": 60.0,
-        "max_delay": 60.0
+        "min_delay": 20.0,
+        "max_delay": 20.0
     },
     {
         "x": 5256,
         "y": 2778,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5263,
         "y": 2780,
-        "min_delay": 60.0,
-        "max_delay": 60.0
+        "min_delay": 20.0,
+        "max_delay": 20.0
     },
     {
         "x": 5272,
         "y": 2780,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5283,
         "y": 2780,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5259,
         "y": 2780,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5253,
         "y": 2776,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5241,
         "y": 2776,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5233,
         "y": 2777,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5227,
         "y": 2777,
-        "min_delay": 60.0,
-        "max_delay": 60.0
+        "min_delay": 20.0,
+        "max_delay": 20.0
     },
     {
         "x": 5218,
         "y": 2779,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5209,
         "y": 2783,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5212,
         "y": 2784,
-        "min_delay": 60.0,
-        "max_delay": 60.0
+        "min_delay": 20.0,
+        "max_delay": 20.0
     },
     {
         "x": 5212,
         "y": 2801,
-        "min_delay": 60.0,
-        "max_delay": 60.0
+        "min_delay": 20.0,
+        "max_delay": 20.0
     },
     {
         "x": 5212,
         "y": 2811,
-        "min_delay": 0.2,
-        "max_delay": 0.2
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "local": "Vai para o portal",
         "x": 5213,
         "y": 2812,
-        "min_delay": 0.2,
-        "max_delay": 0.2,
-        "tolerance": 0
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "tolerance": 0,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "x": 5213,
         "y": 2792,
-        "min_delay": 0.2,
-        "max_delay": 0.2,
-        "tolerance": 0
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "tolerance": 0,
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "local": "Entra portal",
         "x": 5229,
         "y": 2790,
-        "min_delay": 0.2,
-        "max_delay": 0.2,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
         "tolerance": 0,
-        "moves_after": ["CLICKB"]
+        "moves_after": ["CLICKB"],
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "local": "Vai para a room",
         "x": 3873,
         "y": 2893,
-        "min_delay": 0.2,
-        "max_delay": 0.2,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
         "tolerance": 0,
-        "moves_after": []
+        "moves_after": [],
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "local": "Vai para a room",
         "x": 3851,
         "y": 2889,
-        "min_delay": 0.2,
-        "max_delay": 0.2,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
         "tolerance": 0,
-        "moves_after": []
+        "moves_after": [],
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "local": "Vai para a room",
         "x": 3842,
         "y": 2893,
-        "min_delay": 0.2,
-        "max_delay": 0.2,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
         "tolerance": 0,
-        "moves_after": []
+        "moves_after": [],
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "local": "Vai para a room de Toten",
         "x": 3842,
         "y": 2893,
-        "min_delay": 40.0,
-        "max_delay": 40.0,
+        "min_delay": 20.0,
+        "max_delay": 20.0,
         "tolerance": 0,
-        "moves_after": ["-"]
+        "moves_after": ["-"],
+        "exec_callback_after": false,
+        "exec_callback_before": false
     },
     {
         "local": "Restock",
         "x": 195,
         "y": 741,
-        "min_delay": 40.0,
-        "max_delay": 40.0,
+        "min_delay": 80.0,
+        "max_delay": 80.0,
         "tolerance": 0,
-        "moves_after": ["="]
+        "moves_after": ["="],
+        "exec_callback_after": false,
+        "exec_callback_before": false
     }
 ]

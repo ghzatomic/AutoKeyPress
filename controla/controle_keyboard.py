@@ -60,6 +60,7 @@ class KeyboardController:
         :param delay_ini: Tempo para "segurar" se for teclado, ou aguardar após ação se for scroll/clique.
         :param delay_end: Tempo para esperar ao final da ação.
         """
+        print(f"Executando o {movement}")
         if movement in self.get_movements():
             movement = self.get_movements()[movement]
 
@@ -72,8 +73,6 @@ class KeyboardController:
                 self.mouse.scroll(dx, dy)
                 if delay_ini:
                     time.sleep(delay_ini)
-                if delay_end:
-                    time.sleep(delay_end)
                 return
 
             # Clique
@@ -84,21 +83,28 @@ class KeyboardController:
                 # Se quiser "segurar" tempo entre cliques (geralmente não se faz), ou esperar
                 if delay_ini:
                     time.sleep(delay_ini)
-                if delay_end:
-                    time.sleep(delay_end)
                 return
 
         # 2) Se não for dict, assumimos que é teclado (list ou str)
         if isinstance(movement, list):
             # Pressiona todas as teclas
-            for k in movement:
-                self.keyboard.press(k)
-            # Mantém pressionado por delay_ini
-            if delay_ini:
-                time.sleep(delay_ini)
-            # Solta todas as teclas em ordem reversa
-            for k in reversed(movement):
-                self.keyboard.release(k)
+            if ("MOUSE" in movement):
+                button = movement.get('button', Button.left)  # Padrão: clique esquerdo
+                count = movement.get('count', 1)             # Padrão: 1 clique
+                self.mouse.click(button, count)
+                # Se quiser "segurar" tempo entre cliques (geralmente não se faz), ou esperar
+                if delay_ini:
+                    time.sleep(delay_ini)
+            else:
+
+                for k in movement:
+                    self.keyboard.press(k)
+                # Mantém pressionado por delay_ini
+                if delay_ini:
+                    time.sleep(delay_ini)
+                # Solta todas as teclas em ordem reversa
+                for k in reversed(movement):
+                    self.keyboard.release(k)
         else:
             # Se for uma string única
             self.keyboard.press(movement)

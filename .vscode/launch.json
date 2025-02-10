@@ -19,6 +19,14 @@
             "program": "./testeUO.py",
             "console": "integratedTerminal",
             "justMyCode": false
+        },
+        {
+            "name": "Python: Teste Captcha",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "./testeCaptcha.py",
+            "console": "integratedTerminal",
+            "justMyCode": false
         }
     ]
 }

@@ -144,7 +144,7 @@ if __name__ == "__main__":
         
         def clica_loot_timer():
             helper.clica_loot(qtde=10)
-            helper.random_sleep(0.1,0.2)
+            helper.random_sleep(0.2,0.3)
         
         def on_move_log():
             print(f"Personagem se moveu... ")
@@ -165,11 +165,11 @@ if __name__ == "__main__":
                 while True:
                     print("Iniciando "+choice+" - Va para a tela")
                     time.sleep(3)
-                    helper.execute_movement_path(uo_assist, path,stuck_threshold=5,tolerance=1) 
+                    helper.execute_movement_path(uo_assist, path,stuck_threshold=5,tolerance=0) 
             else:
                 print("Iniciando "+choice+" - Va para a tela")
                 time.sleep(3)
-                helper.execute_movement_path(uo_assist, path,stuck_threshold=5,tolerance=1)
+                helper.execute_movement_path(uo_assist, path,stuck_threshold=5,tolerance=0)
     elif choice == "4":
         print("Iniciando "+choice+" - Va para a tela")
         time.sleep(3)

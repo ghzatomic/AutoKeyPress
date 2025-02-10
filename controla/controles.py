@@ -163,24 +163,29 @@ class MovementHelper:
         print(f"\nMapa de direções salvo em '{filename}'!")
         print("Use esse arquivo para o seu 'move_to_target_smart', carregando (dx, dy) automaticamente.")
 
-    def move_to_target_smart_v2(self,
-                                uo_assist, target_x, target_y, step_delay_fn,
-                                tolerance=2,
-                                stuck_threshold=5,
+
+    def move_to_target_smart_v2(self, uo_assist, target_x, target_y, step_delay_fn,
+                                tolerance=0,
+                                stuck_threshold=5,   # Quantas posições no histórico para detectar "travado"
                                 on_move_callback=None,
                                 on_stuck_callback=None,
-                                max_attempts=5,
-                                max_dist_xy=50):
+                                max_attempts=3,
+                                max_dist_xy=50,
+                                simulate_human=True,    # Novo: ativa variação para simular comportamento humano
+                                jitter=0.2):             # Novo: jitter a ser adicionado na ordenação das direções
         """
         Move o personagem até (target_x, target_y) com tolerância e detecção de bloqueios.
+        
+        Parâmetros adicionais para "humanizar" os movimentos:
+        - simulate_human: se True, ativa variações aleatórias.
+        - jitter: valor que será adicionado de forma aleatória na avaliação das direções.
         """
-
         self.pause_flag = False
 
         if not uo_assist.attach_to_assistant():
             print("Erro: Não foi possível anexar ao UOAssist.")
             return
-        
+
         coords = uo_assist.get_character_coords()
         if not coords:
             print("Erro: Não foi possível obter as coordenadas iniciais.")
@@ -191,7 +196,7 @@ class MovementHelper:
         print(f"Movendo para: X={target_x}, Y={target_y} (tolerância = {tolerance}).")
         print(f"Detectando travamento caso {stuck_threshold} leituras sejam iguais ou {max_attempts} tentativas sem progresso.")
         print(f"Usando max_dist_xy = {max_dist_xy} para ignorar passos e travamentos se estiver muito longe.")
-
+        
         last_positions = []
         no_progress_count = 0
         failed_moves = set()
@@ -225,11 +230,12 @@ class MovementHelper:
 
             current_x, current_y = updated_x, updated_y
 
+            # Verifica a distância atual ao alvo
             dist_x = abs(current_x - target_x)
             dist_y = abs(current_y - target_y)
             is_near_enough = (dist_x <= max_dist_xy and dist_y <= max_dist_xy)
 
-            # Detecção de "preso"
+            # Detecção de "preso" somente se estiver perto
             if is_near_enough:
                 if len(last_positions) == stuck_threshold and len(set(last_positions)) == 1:
                     print(f"🚨 Personagem preso na posição {last_positions[0]} (repetido {stuck_threshold} vezes).")
@@ -237,7 +243,6 @@ class MovementHelper:
                         on_stuck_callback(current_x, current_y, failed_moves)
                     else:
                         self.move_away_from_wall(failed_moves)
-
                     last_positions.clear()
                     no_progress_count = 0
                     failed_moves.clear()
@@ -254,26 +259,27 @@ class MovementHelper:
                         on_stuck_callback(current_x, current_y, failed_moves)
                     else:
                         self.move_away_from_wall(failed_moves)
-
                     last_positions.clear()
                     no_progress_count = 0
                     failed_moves.clear()
                     continue
             else:
-                # Se estiver longe, não considera "preso", mas pode contar no_progress
+                # Quando está longe, não aciona a lógica de "preso", mas ainda conta no_progress se desejar.
                 if len(last_positions) >= 2 and last_positions[-1] == last_positions[-2]:
                     no_progress_count += 1
                 else:
                     no_progress_count = 0
 
-            # Tenta mover-se para mais perto
-            directions.sort(key=lambda d: abs((current_x + d[1]) - target_x) + abs((current_y + d[2]) - target_y))
+            # Ordena as direções: se simulate_human estiver ativo, adiciona jitter aleatório à avaliação.
+            directions.sort(key=lambda d: (abs((current_x + d[1]) - target_x) + abs((current_y + d[2]) - target_y)
+                                        + (random.uniform(-jitter, jitter) if simulate_human else 0)))
 
             moved = False
             for move_name, dx, dy in directions:
                 new_x = current_x + dx
                 new_y = current_y + dy
 
+                # Ignora movimentos que fiquem fora do max_dist_xy
                 if abs(new_x - target_x) > max_dist_xy or abs(new_y - target_y) > max_dist_xy:
                     continue
 
@@ -285,10 +291,10 @@ class MovementHelper:
                     time.sleep(40)
                     self.pause_flag = False
 
-                self.controlador.press_and_release(
-                    move_name,
-                    delay_ini=step_delay_fn()
-                )
+                # Se simulate_human, utiliza um delay aleatório; senão, usa o valor retornado pela função step_delay_fn.
+                delay = step_delay_fn()
+
+                self.controlador.press_and_release(move_name, delay_ini=delay)
 
                 coords = uo_assist.get_character_coords()
                 if not coords:
@@ -303,16 +309,17 @@ class MovementHelper:
                 else:
                     failed_moves.add((new_x, new_y))
 
-            # Se "moved" for False, tenta próxima direção ou sai do loop
+            # Se nenhum movimento funcionou, pode-se inserir uma lógica extra (por exemplo, um delay maior ou uma tentativa de recuperação).
 
         if on_move_callback:
             on_move_callback()
 
         print(f"🏁 Destino alcançado! Posição final: X={current_x}, Y={current_y} (tolerância = {tolerance})")
 
+
     def move_to_target_smart(self,
                              uo_assist, target_x, target_y, step_delay_fn,
-                             tolerance=2,
+                             tolerance=0,
                              stuck_threshold=5,
                              on_move_callback=None,
                              on_stuck_callback=None,
@@ -500,8 +507,8 @@ class MovementHelper:
             min_delay = entry.get("min_delay", default_min_delay)
             max_delay = entry.get("max_delay", default_max_delay)
             tolerance = entry.get("tolerance", 1)
-            exec_callback_after = entry.get("exec_callback_after", None)
-            exec_callback_before = entry.get("exec_callback_before", None)
+            exec_callback_after = entry.get("exec_callback_after", True)
+            exec_callback_before = entry.get("exec_callback_before", True)
             moves_after = entry.get("moves_after", [])
 
             def step_delay_fn(min_d=min_delay, max_d=max_delay):
@@ -606,7 +613,7 @@ class MovementHelper:
             print("\n🛑 Gravação interrompida pelo usuário. Coordenadas salvas com sucesso!")
 
     def execute_movement_path(self, uo_assist, path,
-                              tolerance=2, stuck_threshold=3, step_delay=0.3):
+                              tolerance=0, stuck_threshold=3, step_delay=0.3):
         """
         Percorre um caminho baseado em um mapa de coordenadas, movendo-se de ponto a ponto.
         """
@@ -672,6 +679,7 @@ class MovementHelper:
             # Executa callback "depois", se marcado
             if exec_callback_after == None or exec_callback_after == True:
                 if move_callback_after:
+                    print("Vai clicar after ...")
                     move_callback_after()
 
             if step_delay_fn:
@@ -687,9 +695,10 @@ class MovementHelper:
         print(f"Dormindo por {duration:.2f} segundos...")
         time.sleep(duration)
 
-    def clica_loot(self, qtde=1, delay_ini=0.2):
+    def clica_loot(self, qtde=1, delay_ini=0.3):
         for i in range(qtde):
             print("Clicando loot ... ")
             self.controlador.press_and_release("MOUSE_CLICK_LEFT", delay_ini=delay_ini)
+            time.sleep(0.2)
 
 

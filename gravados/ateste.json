@@ -1,11 +1,12 @@
 [
     {
         "local": "Vai p dungeon",
-        "x": 474,
-        "y": 2133,
+        "x": 195,
+        "y": 741,
         "min_delay": 5.0,
         "max_delay": 5.0,
         "tolerance": 0,
-        "moves_after": []
+        "exec_callback_after": true,
+        "exec_callback_before": true
     }
 ]

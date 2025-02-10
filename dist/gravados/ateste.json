@@ -1,0 +1,11 @@
+[
+    {
+        "local": "Vai p dungeon",
+        "x": 474,
+        "y": 2133,
+        "min_delay": 5.0,
+        "max_delay": 5.0,
+        "tolerance": 0,
+        "moves_after": []
+    }
+]
