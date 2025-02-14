@@ -637,7 +637,7 @@ class MovementHelper:
             print("\n🛑 Gravação interrompida pelo usuário. Coordenadas salvas com sucesso!")
 
     def execute_movement_path(self, uo_assist, path,
-                              tolerance=0, stuck_threshold=3, step_delay=0.3):
+                              tolerance=0, stuck_threshold=3, step_delay=0.2):
         """
         Percorre um caminho baseado em um mapa de coordenadas, movendo-se de ponto a ponto.
         """
