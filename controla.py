@@ -130,8 +130,7 @@ if __name__ == "__main__":
     helper = MovementHelper(controlador)
     print("1. Gravar posições ")
     print("2. Ler posições ")
-    print("3. Calibra posicoes ")
-    print("4. Testes gerais ")
+    print("3. Andar mina randomicamente")
     choice = input("Escolha uma opção: ")
     
     if choice == "1":
@@ -151,7 +150,7 @@ if __name__ == "__main__":
 
         def on_move_click():
             clica_loot_timer()
-            helper.random_sleep(0.5,0.7)
+            helper.random_sleep(0.4,0.6)
         
         resposta_click = input_boolean("Você quer ativar o modo de click ? (s/n): ")
         resposta_click_loop = input_boolean("Você quer o macro em loop ? (s/n): ")
@@ -170,9 +169,10 @@ if __name__ == "__main__":
                 print("Iniciando "+choice+" - Va para a tela")
                 time.sleep(3)
                 helper.execute_movement_path(uo_assist, path,stuck_threshold=5,tolerance=0)
-    elif choice == "4":
+    elif choice == "3":
         print("Iniciando "+choice+" - Va para a tela")
         time.sleep(3)
+        helper.random_walk_neighbors(x_ini=2482, y_ini=678, x_fim=2593, y_fim=727, uo_assist=uo_assist)
     else:
         print("Opção inválida!")
 

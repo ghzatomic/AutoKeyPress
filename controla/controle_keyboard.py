@@ -60,7 +60,7 @@ class KeyboardController:
         :param delay_ini: Tempo para "segurar" se for teclado, ou aguardar após ação se for scroll/clique.
         :param delay_end: Tempo para esperar ao final da ação.
         """
-        print(f"Executando o {movement}")
+        #print(f"Executando o {movement}")
         if movement in self.get_movements():
             movement = self.get_movements()[movement]
 

@@ -166,7 +166,7 @@ class MovementHelper:
 
     def move_to_target_smart_v2(self, uo_assist, target_x, target_y, step_delay_fn,
                                 tolerance=0,
-                                stuck_threshold=5,   # Quantas posições no histórico para detectar "travado"
+                                stuck_threshold=8,   # Quantas posições no histórico para detectar "travado"
                                 on_move_callback=None,
                                 on_stuck_callback=None,
                                 max_attempts=3,
@@ -510,6 +510,7 @@ class MovementHelper:
             exec_callback_after = entry.get("exec_callback_after", True)
             exec_callback_before = entry.get("exec_callback_before", True)
             moves_after = entry.get("moves_after", [])
+            wait_between_moves_after = entry.get("wait_between_moves_after", None)
 
             def step_delay_fn(min_d=min_delay, max_d=max_delay):
                 return random.uniform(min_d, max_d)
@@ -524,7 +525,8 @@ class MovementHelper:
                     tolerance,
                     moves_after,
                     exec_callback_after,
-                    exec_callback_before
+                    exec_callback_before,
+                    wait_between_moves_after
                 )
             )
 
@@ -533,7 +535,7 @@ class MovementHelper:
 
     def record_position_xy(self, uo_assist, save_folder="gravados", filename=None):
         """
-        Grava coordenadas do personagem ao pressionar F1 ou F2 e salva em um arquivo.
+        Grava coordenadas do personagem ao pressionar F1, F2, F3 e F4 e salva em um arquivo.
         """
         if not os.path.exists(save_folder):
             os.makedirs(save_folder)
@@ -566,11 +568,15 @@ class MovementHelper:
 
         print(f"🎬 Pressione F1 para gravar com delay padrão ({min_delay}-{max_delay}s)")
         print("🎬 Pressione F2 para gravar com delay fixo de 0.1s")
+        print("🎬 Pressione F3 para iniciar a contagem de tempo")
+        print("🎬 Pressione F4 para gravar com o tempo decorrido entre F3 e F4")
         print("🛑 Pressione CTRL+C para sair.")
+
+        start_time = None  # Para armazenar o tempo do F3
 
         try:
             while True:
-                event = keyboard.read_event(suppress=True)  # Captura qualquer tecla
+                event = keyboard.read_event(suppress=False)  # Captura qualquer tecla
                 if event.event_type == keyboard.KEY_DOWN:
                     coords = uo_assist.get_character_coords()
                     if not coords:
@@ -578,20 +584,37 @@ class MovementHelper:
                         continue
 
                     current_x, current_y = coords
+
                     if event.name == "f1":
                         delay_min = min_delay
                         delay_max = max_delay
                         exec_callback_after = True
                         exec_callback_before = True
+                        tolerance = 0
                         print(f"🔴 Coordenada gravada (delay padrão): ({current_x}, {current_y})")
-
+                    
                     elif event.name == "f2":
                         delay_min = 0.1
                         delay_max = 0.1
                         exec_callback_after = False
                         exec_callback_before = False
+                        tolerance = 1
                         print(f"🔴 Coordenada gravada (delay fixo de 0.1s): ({current_x}, {current_y})")
-
+                    
+                    elif event.name == "f3":
+                        start_time = time.time()
+                        print("⏱️ Contagem de tempo iniciada.")
+                        continue  # Não grava posição, apenas inicia a contagem
+                    
+                    elif event.name == "f4" and start_time is not None:
+                        elapsed_time = time.time() - start_time
+                        delay_min = elapsed_time
+                        delay_max = elapsed_time
+                        exec_callback_after = True
+                        exec_callback_before = True
+                        tolerance = 0
+                        print(f"🔴 Coordenada gravada (delay baseado no tempo decorrido: {elapsed_time:.2f}s): ({current_x}, {current_y})")
+                        start_time = None  # Reseta o contador
                     else:
                         continue
 
@@ -601,7 +624,8 @@ class MovementHelper:
                         "min_delay": delay_min,
                         "max_delay": delay_max,
                         "exec_callback_after": exec_callback_after,
-                        "exec_callback_before": exec_callback_before
+                        "exec_callback_before": exec_callback_before,
+                        "tolerance": tolerance
                     })
 
                     with open(filename, "w") as f:
@@ -640,7 +664,8 @@ class MovementHelper:
              tolerance_local,
              moves_after,
              exec_callback_after,
-             exec_callback_before) in path:
+             exec_callback_before,
+             wait_between_moves_after) in path:
 
             # Executa callback "antes", se marcado
             if exec_callback_before == None or exec_callback_before == True:
@@ -675,6 +700,8 @@ class MovementHelper:
                 for move in moves_after:
                     self.controlador.press_and_release(move,
                                                        delay_ini=0.3)
+                    if wait_between_moves_after:
+                        time.sleep(wait_between_moves_after)
 
             # Executa callback "depois", se marcado
             if exec_callback_after == None or exec_callback_after == True:
@@ -692,7 +719,7 @@ class MovementHelper:
         Faz um sleep com uma duração aleatória entre min_seconds e max_seconds.
         """
         duration = random.uniform(min_seconds, max_seconds)
-        print(f"Dormindo por {duration:.2f} segundos...")
+        #print(f"Dormindo por {duration:.2f} segundos...")
         time.sleep(duration)
 
     def clica_loot(self, qtde=1, delay_ini=0.3):
@@ -700,5 +727,170 @@ class MovementHelper:
             print("Clicando loot ... ")
             self.controlador.press_and_release("MOUSE_CLICK_LEFT", delay_ini=delay_ini)
             time.sleep(0.2)
+
+
+    def random_walk_neighbors(self, x_ini, y_ini, x_fim, y_fim, uo_assist,
+                            step_size=1,
+                            min_pause=5, max_pause=5,
+                            num_moves=100,
+                            stuck_threshold=3,
+                            visited_tolerance=1,
+                            move_fn=None):
+        """
+        Faz o personagem andar aleatoriamente usando apenas os pontos vizinhos.
+
+        Em cada ponto, gera candidatos (definidos por step_size) e filtra:
+        - Posições fora dos limites;
+        - Posições muito próximas aos pontos visitados (definido por visited_tolerance);
+        - Posições que já foram marcadas como bloqueadas (movimentos que falharam).
+
+        As posições bloqueadas são salvas no arquivo 'blocked_positions.txt' e carregadas
+        na inicialização, para que o bot já saiba quais locais são inacessíveis.
+
+        Se após um movimento a posição atual ficar fora dos limites, o algoritmo reseta para a posição inicial.
+
+        Parâmetros:
+        - x_ini, y_ini, x_fim, y_fim: limites da área.
+        - step_size: deslocamento máximo para pontos vizinhos.
+        - min_pause, max_pause: intervalo (em segundos) para pausa entre os movimentos.
+        - num_moves: número total de movimentos a executar.
+        - stuck_threshold: número de leituras repetidas para considerar que o personagem está "stuck".
+        - visited_tolerance: define a região (usando a distância de Chebyshev) ao redor de um ponto visitado que deve ser evitada.
+        - move_fn: função que executa o movimento para uma posição (x, y). Se None, utiliza move_to_target_smart_v2.
+        """
+        import random, time, os
+
+        blocked_file = "blocked_positions.txt"
+        # Carrega as posições bloqueadas do arquivo, se existir.
+        blocked = set()
+        if os.path.exists(blocked_file):
+            with open(blocked_file, "r") as f:
+                for line in f:
+                    line = line.strip()
+                    if line:
+                        try:
+                            bx, by = map(int, line.split(','))
+                            blocked.add((bx, by))
+                        except Exception:
+                            pass
+
+        # Se move_fn não for fornecida, define uma função padrão
+        if move_fn is None:
+            def step_delay_fn():
+                return random.uniform(0.2, 0.3)
+            
+            def on_stuck_callback(current_x, current_y, failed_moves):
+                neighbors = []
+                for dx in range(-step_size, step_size + 1):
+                    for dy in range(-step_size, step_size + 1):
+                        if dx == 0 and dy == 0:
+                            continue
+                        nx = current_x + dx
+                        ny = current_y + dy
+                        if nx < x_ini or nx > x_fim or ny < y_ini or ny > y_fim:
+                            continue
+                        if (nx, ny) in failed_moves:
+                            continue
+                        neighbors.append((nx, ny))
+                if neighbors:
+                    new_target = random.choice(neighbors)
+                    print(f"Stuck detectado em ({current_x},{current_y}). Tentando novo vizinho: {new_target}")
+                    return new_target
+                else:
+                    print("Nenhum vizinho disponível para sair do stuck.")
+                    return None
+
+            def move_fn(x, y):
+                print(f"Movendo para ({x}, {y})")
+                self.move_to_target_smart_v2(uo_assist, x, y, step_delay_fn,
+                                            tolerance=0,
+                                            stuck_threshold=stuck_threshold,
+                                            on_move_callback=None,
+                                            on_stuck_callback=on_stuck_callback,
+                                            max_attempts=3,
+                                            max_dist_xy=50,  # Considera a vizinhança
+                                            simulate_human=True,
+                                            jitter=0.2)
+
+        # Obtém a posição atual via uo_assist; se falhar, usa (x_ini, y_ini)
+        coords = uo_assist.get_character_coords()
+        if coords:
+            current_x, current_y = coords
+        else:
+            current_x, current_y = x_ini, y_ini
+        print(f"Iniciando random walk a partir de ({current_x}, {current_y})")
+
+        # Lista de pontos visitados (para evitar repetir áreas)
+        visited = [(current_x, current_y)]
+
+        for i in range(num_moves):
+            # Gera a lista de candidatos (pontos vizinhos) filtrando:
+            #   - Posições fora dos limites;
+            #   - Posições muito próximas aos pontos visitados (definido por visited_tolerance);
+            #   - Posições marcadas como bloqueadas.
+            candidates = []
+            for dx in range(-step_size, step_size + 1):
+                for dy in range(-step_size, step_size + 1):
+                    if dx == 0 and dy == 0:
+                        continue
+                    nx = current_x + dx
+                    ny = current_y + dy
+                    if nx < x_ini or nx > x_fim or ny < y_ini or ny > y_fim:
+                        continue
+                    if (nx, ny) in blocked:
+                        continue
+                    too_close = False
+                    for (vx, vy) in visited:
+                        if max(abs(nx - vx), abs(ny - vy)) < visited_tolerance:
+                            too_close = True
+                            break
+                    if too_close:
+                        continue
+                    candidates.append((nx, ny))
+            if not candidates:
+                print("Nenhum vizinho válido disponível. Encerrando random walk.")
+                break
+
+            # Escolhe aleatoriamente um dos candidatos
+            next_x, next_y = random.choice(candidates)
+            
+            # Tenta mover para o candidato escolhido
+            move_fn(next_x, next_y)
+            
+            # Após o movimento, obtém a posição atual
+            coords = uo_assist.get_character_coords()
+            if coords:
+                new_x, new_y = coords
+            else:
+                new_x, new_y = next_x, next_y
+
+            # Se a posição não mudou, o movimento falhou.
+            if (new_x, new_y) == (current_x, current_y):
+                print(f"Falha ao mover para ({next_x}, {next_y}). Marcando como bloqueado.")
+                blocked.add((next_x, next_y))
+                with open(blocked_file, "a") as f:
+                    f.write(f"{next_x},{next_y}\n")
+                continue
+
+            # Verifica se a nova posição está fora dos limites. Se estiver, reseta para a posição inicial.
+            if new_x < x_ini or new_x > x_fim or new_y < y_ini or new_y > y_fim:
+                print(f"Posição ({new_x}, {new_y}) fora dos limites. Resetando para posição inicial ({x_ini}, {y_ini}).")
+                current_x, current_y = x_ini, y_ini
+                visited.append((current_x, current_y))
+                continue
+
+            # Movimento bem-sucedido: atualiza a posição e registra o local visitado.
+            current_x, current_y = new_x, new_y
+            visited.append((current_x, current_y))
+            print(f"Posição atual atualizada para ({current_x}, {current_y})")
+
+            # Pausa entre os movimentos para simular a decisão.
+            duracao = random.uniform(min_pause, max_pause)
+            print(f"Aguardando {duracao:.2f} segundos")
+            time.sleep(duracao)
+
+
+
+
 
 

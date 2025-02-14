@@ -1,0 +1,398 @@
+[
+    {
+        "x": 5243,
+        "y": 2820,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 0
+    },
+    {
+        "x": 5243,
+        "y": 2813,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5258,
+        "y": 2813,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5258,
+        "y": 2826,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5235,
+        "y": 2826,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5235,
+        "y": 2818,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5229,
+        "y": 2812,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5214,
+        "y": 2812,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5210,
+        "y": 2831,
+        "min_delay": 12.064952373504639,
+        "max_delay": 12.064952373504639,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 0
+    },
+    {
+        "x": 5210,
+        "y": 2841,
+        "min_delay": 6.969685792922974,
+        "max_delay": 6.969685792922974,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 0
+    },
+    {
+        "x": 5228,
+        "y": 2845,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5230,
+        "y": 2841,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5225,
+        "y": 2836,
+        "min_delay": 18.232674837112427,
+        "max_delay": 18.232674837112427,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 0
+    },
+    {
+        "x": 5234,
+        "y": 2842,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5238,
+        "y": 2836,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5238,
+        "y": 2834,
+        "min_delay": 5.841196775436401,
+        "max_delay": 5.841196775436401,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 0
+    },
+    {
+        "x": 5238,
+        "y": 2845,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5247,
+        "y": 2845,
+        "min_delay": 24.464648246765137,
+        "max_delay": 24.464648246765137,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 0
+    },
+    {
+        "x": 5237,
+        "y": 2845,
+        "min_delay": 15.0,
+        "max_delay": 15.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 0
+    },
+    {
+        "x": 5210,
+        "y": 2845,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5205,
+        "y": 2830,
+        "min_delay": 8.934980154037476,
+        "max_delay": 8.934980154037476,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 0
+    },
+    {
+        "x": 5205,
+        "y": 2827,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5201,
+        "y": 2823,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5194,
+        "y": 2816,
+        "min_delay": 25.913777828216553,
+        "max_delay": 25.913777828216553,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 0
+    },
+    {
+        "x": 5204,
+        "y": 2826,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5204,
+        "y": 2837,
+        "min_delay": 14.952264070510864,
+        "max_delay": 14.952264070510864,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 0
+    },
+    {
+        "x": 5198,
+        "y": 2834,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5193,
+        "y": 2834,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5189,
+        "y": 2830,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5189,
+        "y": 2830,
+        "min_delay": 13.687966585159302,
+        "max_delay": 13.687966585159302,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 0
+    },
+    {
+        "x": 5183,
+        "y": 2827,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5181,
+        "y": 2819,
+        "min_delay": 6.119250535964966,
+        "max_delay": 6.119250535964966,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 0
+    },
+    {
+        "x": 5181,
+        "y": 2811,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5187,
+        "y": 2805,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5193,
+        "y": 2802,
+        "min_delay": 7.3503172397613525,
+        "max_delay": 7.3503172397613525,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 0
+    },
+    {
+        "x": 5208,
+        "y": 2802,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5212,
+        "y": 2796,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5212,
+        "y": 2792,
+        "min_delay": 8.063188552856445,
+        "max_delay": 8.063188552856445,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 0
+    },
+    {
+        "x": 5202,
+        "y": 2792,
+        "min_delay": 20.361012935638428,
+        "max_delay": 20.361012935638428,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 0
+    },
+    {
+        "x": 5200,
+        "y": 2784,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5205,
+        "y": 2778,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5212,
+        "y": 2778,
+        "min_delay": 7.4163830280303955,
+        "max_delay": 7.4163830280303955,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 0
+    },
+    {
+        "x": 5212,
+        "y": 2800,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5212,
+        "y": 2811,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    }
+]

@@ -4,7 +4,7 @@
         "x": 195,
         "y": 741,
         "min_delay": 15.0,
-        "max_delay": 15.0,
+        "max_delay": 19.0,
         "tolerance": 0,
         "moves_after": ["="],
         "exec_callback_after": false,
@@ -14,8 +14,8 @@
         "local": "Vai p dungeon (AGUARDA MANA)",
         "x": 195,
         "y": 741,
-        "min_delay": 20.0,
-        "max_delay": 20.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "tolerance": 0,
         "moves_after": ["m"],
         "exec_callback_after": false,
@@ -33,8 +33,8 @@
     {
         "x": 5890,
         "y": 95,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "moves_after": ["1"]
@@ -50,24 +50,24 @@
     {
         "x": 5891,
         "y": 95,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5891,
         "y": 113,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5891,
         "y": 126,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -82,16 +82,16 @@
     {
         "x": 5903,
         "y": 113,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5903,
         "y": 127,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -106,16 +106,16 @@
     {
         "x": 5906,
         "y": 141,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5906,
         "y": 152,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -138,8 +138,8 @@
     {
         "x": 5926,
         "y": 156,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -162,16 +162,16 @@
     {
         "x": 5917,
         "y": 124,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5917,
         "y": 110,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -194,16 +194,16 @@
     {
         "x": 5917,
         "y": 81,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5910,
         "y": 81,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },{ "local": "iniciou novamente",
@@ -217,8 +217,8 @@
     {
         "x": 5890,
         "y": 95,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -233,24 +233,24 @@
     {
         "x": 5891,
         "y": 95,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5891,
         "y": 113,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5891,
         "y": 126,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -265,16 +265,16 @@
     {
         "x": 5903,
         "y": 113,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5903,
         "y": 127,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -289,16 +289,16 @@
     {
         "x": 5906,
         "y": 141,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5906,
         "y": 152,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -321,8 +321,8 @@
     {
         "x": 5926,
         "y": 156,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -345,16 +345,16 @@
     {
         "x": 5917,
         "y": 124,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5917,
         "y": 110,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -377,16 +377,16 @@
     {
         "x": 5917,
         "y": 81,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5910,
         "y": 81,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },{ "local": "iniciou novamente",
@@ -399,8 +399,8 @@
     },{ "local": "iniciou novamente",
         "x": 5890,
         "y": 95,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -415,24 +415,24 @@
     {
         "x": 5891,
         "y": 95,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5891,
         "y": 113,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5891,
         "y": 126,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -447,16 +447,16 @@
     {
         "x": 5903,
         "y": 113,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5903,
         "y": 127,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -471,16 +471,16 @@
     {
         "x": 5906,
         "y": 141,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5906,
         "y": 152,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -503,8 +503,8 @@
     {
         "x": 5926,
         "y": 156,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -527,16 +527,16 @@
     {
         "x": 5917,
         "y": 124,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5917,
         "y": 110,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -559,16 +559,16 @@
     {
         "x": 5917,
         "y": 81,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5910,
         "y": 81,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },{ "local": "iniciou novamente",
@@ -581,8 +581,8 @@
     },{ "local": "iniciou novamente",
         "x": 5890,
         "y": 95,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -597,24 +597,24 @@
     {
         "x": 5891,
         "y": 95,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5891,
         "y": 113,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5891,
         "y": 126,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -629,16 +629,16 @@
     {
         "x": 5903,
         "y": 113,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5903,
         "y": 127,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -653,16 +653,16 @@
     {
         "x": 5906,
         "y": 141,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5906,
         "y": 152,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -685,8 +685,8 @@
     {
         "x": 5926,
         "y": 156,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -709,16 +709,16 @@
     {
         "x": 5917,
         "y": 124,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5917,
         "y": 110,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -741,16 +741,16 @@
     {
         "x": 5917,
         "y": 81,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
     {
         "x": 5910,
         "y": 81,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
         "exec_callback_after": true,
         "exec_callback_before": true
     },
@@ -769,49 +769,17 @@
         "min_delay": 0.1,
         "max_delay": 0.1,
         "tolerance": 0,
-        "moves_after": ["CLICKB"],
+        "wait_between_moves_after": 50,
+        "moves_after": ["CLICKB","n"],
         "exec_callback_after": false,
         "exec_callback_before": false
     },
     {
-        "local": "Vai para a room",
-        "x": 3873,
-        "y": 2893,
-        "min_delay": 0.1,
-        "max_delay": 0.1,
-        "tolerance": 0,
-        "moves_after": [],
-        "exec_callback_after": false,
-        "exec_callback_before": false
-    },
-    {
-        "local": "Vai para a room",
-        "x": 3851,
-        "y": 2889,
-        "min_delay": 0.1,
-        "max_delay": 0.1,
-        "tolerance": 0,
-        "moves_after": [],
-        "exec_callback_after": false,
-        "exec_callback_before": false
-    },
-    {
-        "local": "Vai para a room",
-        "x": 3842,
-        "y": 2893,
-        "min_delay": 0.1,
-        "max_delay": 0.1,
-        "tolerance": 0,
-        "moves_after": [],
-        "exec_callback_after": false,
-        "exec_callback_before": false
-    },
-    {
-        "local": "Vai para a room de Toten",
-        "x": 3842,
-        "y": 2893,
-        "min_delay": 20.0,
-        "max_delay": 20.0,
+        "local": "Vai para a room de Toten room",
+        "x": 3841,
+        "y": 2890,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
         "tolerance": 0,
         "moves_after": ["-"],
         "exec_callback_after": false,
