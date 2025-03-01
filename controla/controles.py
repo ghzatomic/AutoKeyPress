@@ -171,7 +171,7 @@ class MovementHelper:
                                 on_stuck_callback=None,
                                 max_attempts=3,
                                 max_dist_xy=50,
-                                simulate_human=True,    # Novo: ativa variação para simular comportamento humano
+                                simulate_human=False,    # Novo: ativa variação para simular comportamento humano
                                 jitter=0.2):             # Novo: jitter a ser adicionado na ordenação das direções
         """
         Move o personagem até (target_x, target_y) com tolerância e detecção de bloqueios.
@@ -511,6 +511,8 @@ class MovementHelper:
             exec_callback_before = entry.get("exec_callback_before", True)
             moves_after = entry.get("moves_after", [])
             wait_between_moves_after = entry.get("wait_between_moves_after", None)
+            exec_scripts_after = entry.get("exec_scripts_after", [])
+            
 
             def step_delay_fn(min_d=min_delay, max_d=max_delay):
                 return random.uniform(min_d, max_d)
@@ -526,7 +528,8 @@ class MovementHelper:
                     moves_after,
                     exec_callback_after,
                     exec_callback_before,
-                    wait_between_moves_after
+                    wait_between_moves_after,
+                    exec_scripts_after
                 )
             )
 
@@ -637,7 +640,7 @@ class MovementHelper:
             print("\n🛑 Gravação interrompida pelo usuário. Coordenadas salvas com sucesso!")
 
     def execute_movement_path(self, uo_assist, path,
-                              tolerance=0, stuck_threshold=3, step_delay=0.2):
+                              tolerance=1, stuck_threshold=3, step_delay=0.26):
         """
         Percorre um caminho baseado em um mapa de coordenadas, movendo-se de ponto a ponto.
         """
@@ -665,7 +668,8 @@ class MovementHelper:
              moves_after,
              exec_callback_after,
              exec_callback_before,
-             wait_between_moves_after) in path:
+             wait_between_moves_after,
+             exec_scripts_after) in path:
 
             # Executa callback "antes", se marcado
             if exec_callback_before == None or exec_callback_before == True:
@@ -702,6 +706,14 @@ class MovementHelper:
                                                        delay_ini=0.3)
                     if wait_between_moves_after:
                         time.sleep(wait_between_moves_after)
+            if exec_scripts_after:
+                for script in exec_scripts_after:
+                    self.controlador.send_text(script,
+                                                       delay=0.3)
+                    if exec_scripts_after:
+                        time.sleep(wait_between_moves_after)
+
+            
 
             # Executa callback "depois", se marcado
             if exec_callback_after == None or exec_callback_after == True:
@@ -809,7 +821,7 @@ class MovementHelper:
                                             on_stuck_callback=on_stuck_callback,
                                             max_attempts=3,
                                             max_dist_xy=50,  # Considera a vizinhança
-                                            simulate_human=True,
+                                            simulate_human=False,
                                             jitter=0.2)
 
         # Obtém a posição atual via uo_assist; se falhar, usa (x_ini, y_ini)

@@ -124,8 +124,8 @@
     {
         "x": 5993,
         "y": 524,
-        "min_delay": 14.976548671722412,
-        "max_delay": 14.976548671722412,
+        "min_delay": 24.976548671722412,
+        "max_delay": 34.976548671722412,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 0
@@ -151,8 +151,8 @@
     {
         "x": 5992,
         "y": 507,
-        "min_delay": 43.94596219062805,
-        "max_delay": 43.94596219062805,
+        "min_delay": 53.94596219062805,
+        "max_delay": 63.94596219062805,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 0
@@ -160,8 +160,8 @@
     {
         "x": 5994,
         "y": 520,
-        "min_delay": 15.0,
-        "max_delay": 15.0,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 0
@@ -260,7 +260,7 @@
         "x": 5916,
         "y": 567,
         "min_delay": 23.579426288604736,
-        "max_delay": 23.579426288604736,
+        "max_delay": 33.579426288604736,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 0
@@ -340,8 +340,8 @@
     {
         "x": 5916,
         "y": 653,
-        "min_delay": 25.0,
-        "max_delay": 35.0,
+        "min_delay": 35.0,
+        "max_delay": 45.0,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 0
@@ -367,8 +367,8 @@
     {
         "x": 5933,
         "y": 655,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
+        "min_delay": 35.0,
+        "max_delay": 35.0,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 0
@@ -421,8 +421,8 @@
     {
         "x": 5956,
         "y": 674,
-        "min_delay": 14.98392653465271,
-        "max_delay": 24.98392653465271,
+        "min_delay": 24.98392653465271,
+        "max_delay": 34.98392653465271,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 0

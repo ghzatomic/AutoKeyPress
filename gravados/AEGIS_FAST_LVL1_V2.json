@@ -70,8 +70,8 @@
     {
         "x": 5895,
         "y": 119,
-        "min_delay": 28.57485270500183,
-        "max_delay": 28.57485270500183,
+        "min_delay": 15.57485270500183,
+        "max_delay": 15.57485270500183,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -80,7 +80,7 @@
         "x": 5895,
         "y": 119,
         "min_delay": 12.602043628692627,
-        "max_delay": 12.602043628692627,
+        "max_delay": 15.602043628692627,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -106,8 +106,8 @@
     {
         "x": 5905,
         "y": 142,
-        "min_delay": 23.730145931243896,
-        "max_delay": 23.730145931243896,
+        "min_delay": 15.730145931243896,
+        "max_delay": 20.730145931243896,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -115,8 +115,8 @@
     {
         "x": 5905,
         "y": 153,
-        "min_delay": 33.42254137992859,
-        "max_delay": 33.42254137992859,
+        "min_delay": 15.42254137992859,
+        "max_delay": 20.42254137992859,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -151,8 +151,8 @@
     {
         "x": 5926,
         "y": 156,
-        "min_delay": 29.822694301605225,
-        "max_delay": 29.822694301605225,
+        "min_delay": 20.822694301605225,
+        "max_delay": 30.822694301605225,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -169,8 +169,8 @@
     {
         "x": 5915,
         "y": 143,
-        "min_delay": 40.32116341590881,
-        "max_delay": 40.32116341590881,
+        "min_delay": 30.32116341590881,
+        "max_delay": 35.32116341590881,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -196,8 +196,8 @@
     {
         "x": 5918,
         "y": 120,
-        "min_delay": 15.0,
-        "max_delay": 15.0,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -205,8 +205,8 @@
     {
         "x": 5918,
         "y": 109,
-        "min_delay": 15.0,
-        "max_delay": 15.0,
+        "min_delay": 25.0,
+        "max_delay": 35.0,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -241,8 +241,8 @@
     {
         "x": 5910,
         "y": 82,
-        "min_delay": 15.0,
-        "max_delay": 25.0,
+        "min_delay": 25.0,
+        "max_delay": 35.0,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -250,8 +250,8 @@
     {
         "x": 5910,
         "y": 94,
-        "min_delay": 15.0,
-        "max_delay": 15.0,
+        "min_delay": 25.0,
+        "max_delay": 40.0,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -260,15 +260,24 @@
         "local": "Fim",
         "x": 5901,
         "y": 94,
-        "min_delay": 15.0,
-        "max_delay": 15.0,
+        "min_delay": 25.0,
+        "max_delay": 35.0,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
     }
     ,
     {
-        "local":"Inicio",
+        "local": "Inicio",
+        "x": 5896,
+        "y": 94,
+        "min_delay": 14.480485677719116,
+        "max_delay": 14.480485677719116,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
         "x": 5892,
         "y": 96,
         "min_delay": 15.321115493774414,
@@ -308,7 +317,7 @@
         "x": 5895,
         "y": 119,
         "min_delay": 28.57485270500183,
-        "max_delay": 28.57485270500183,
+        "max_delay": 38.57485270500183,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -317,7 +326,7 @@
         "x": 5895,
         "y": 119,
         "min_delay": 12.602043628692627,
-        "max_delay": 12.602043628692627,
+        "max_delay": 22.602043628692627,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -343,8 +352,8 @@
     {
         "x": 5905,
         "y": 142,
-        "min_delay": 23.730145931243896,
-        "max_delay": 23.730145931243896,
+        "min_delay": 33.730145931243896,
+        "max_delay": 38.730145931243896,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -353,7 +362,7 @@
         "x": 5905,
         "y": 153,
         "min_delay": 33.42254137992859,
-        "max_delay": 33.42254137992859,
+        "max_delay": 38.42254137992859,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -389,7 +398,7 @@
         "x": 5926,
         "y": 156,
         "min_delay": 29.822694301605225,
-        "max_delay": 29.822694301605225,
+        "max_delay": 40.822694301605225,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -407,7 +416,7 @@
         "x": 5915,
         "y": 143,
         "min_delay": 40.32116341590881,
-        "max_delay": 40.32116341590881,
+        "max_delay": 50.32116341590881,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -433,8 +442,8 @@
     {
         "x": 5918,
         "y": 120,
-        "min_delay": 15.0,
-        "max_delay": 15.0,
+        "min_delay": 25.0,
+        "max_delay": 45.0,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -442,8 +451,8 @@
     {
         "x": 5918,
         "y": 109,
-        "min_delay": 15.0,
-        "max_delay": 15.0,
+        "min_delay": 25.0,
+        "max_delay": 35.0,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -478,8 +487,8 @@
     {
         "x": 5910,
         "y": 82,
-        "min_delay": 15.0,
-        "max_delay": 25.0,
+        "min_delay": 25.0,
+        "max_delay": 35.0,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -487,8 +496,8 @@
     {
         "x": 5910,
         "y": 94,
-        "min_delay": 15.0,
-        "max_delay": 15.0,
+        "min_delay": 25.0,
+        "max_delay": 40.0,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -497,14 +506,23 @@
         "local": "Fim",
         "x": 5901,
         "y": 94,
-        "min_delay": 15.0,
-        "max_delay": 15.0,
+        "min_delay": 25.0,
+        "max_delay": 35.0,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
     },
     {
-        "local":"Inicio",
+        "local": "Inicio",
+        "x": 5896,
+        "y": 94,
+        "min_delay": 14.480485677719116,
+        "max_delay": 14.480485677719116,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
         "x": 5892,
         "y": 96,
         "min_delay": 15.321115493774414,
@@ -544,7 +562,7 @@
         "x": 5895,
         "y": 119,
         "min_delay": 28.57485270500183,
-        "max_delay": 28.57485270500183,
+        "max_delay": 38.57485270500183,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -553,7 +571,7 @@
         "x": 5895,
         "y": 119,
         "min_delay": 12.602043628692627,
-        "max_delay": 12.602043628692627,
+        "max_delay": 22.602043628692627,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -579,8 +597,8 @@
     {
         "x": 5905,
         "y": 142,
-        "min_delay": 23.730145931243896,
-        "max_delay": 23.730145931243896,
+        "min_delay": 33.730145931243896,
+        "max_delay": 38.730145931243896,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -589,7 +607,7 @@
         "x": 5905,
         "y": 153,
         "min_delay": 33.42254137992859,
-        "max_delay": 33.42254137992859,
+        "max_delay": 38.42254137992859,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -625,7 +643,7 @@
         "x": 5926,
         "y": 156,
         "min_delay": 29.822694301605225,
-        "max_delay": 29.822694301605225,
+        "max_delay": 40.822694301605225,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -643,7 +661,7 @@
         "x": 5915,
         "y": 143,
         "min_delay": 40.32116341590881,
-        "max_delay": 40.32116341590881,
+        "max_delay": 50.32116341590881,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -669,8 +687,8 @@
     {
         "x": 5918,
         "y": 120,
-        "min_delay": 15.0,
-        "max_delay": 15.0,
+        "min_delay": 25.0,
+        "max_delay": 45.0,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -678,8 +696,8 @@
     {
         "x": 5918,
         "y": 109,
-        "min_delay": 15.0,
-        "max_delay": 15.0,
+        "min_delay": 25.0,
+        "max_delay": 35.0,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -714,8 +732,8 @@
     {
         "x": 5910,
         "y": 82,
-        "min_delay": 15.0,
-        "max_delay": 25.0,
+        "min_delay": 25.0,
+        "max_delay": 35.0,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -723,8 +741,8 @@
     {
         "x": 5910,
         "y": 94,
-        "min_delay": 15.0,
-        "max_delay": 15.0,
+        "min_delay": 25.0,
+        "max_delay": 40.0,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -733,8 +751,253 @@
         "local": "Fim",
         "x": 5901,
         "y": 94,
-        "min_delay": 15.0,
-        "max_delay": 15.0,
+        "min_delay": 25.0,
+        "max_delay": 35.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "local": "Inicio",
+        "x": 5896,
+        "y": 94,
+        "min_delay": 14.480485677719116,
+        "max_delay": 14.480485677719116,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 5892,
+        "y": 96,
+        "min_delay": 15.321115493774414,
+        "max_delay": 15.321115493774414,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 5890,
+        "y": 100,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 5890,
+        "y": 109,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5890,
+        "y": 114,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5895,
+        "y": 119,
+        "min_delay": 28.57485270500183,
+        "max_delay": 38.57485270500183,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 5895,
+        "y": 119,
+        "min_delay": 12.602043628692627,
+        "max_delay": 22.602043628692627,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 5900,
+        "y": 124,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 5905,
+        "y": 135,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5905,
+        "y": 142,
+        "min_delay": 33.730145931243896,
+        "max_delay": 38.730145931243896,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 5905,
+        "y": 153,
+        "min_delay": 33.42254137992859,
+        "max_delay": 38.42254137992859,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 5900,
+        "y": 153,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 5914,
+        "y": 153,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5919,
+        "y": 156,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5926,
+        "y": 156,
+        "min_delay": 29.822694301605225,
+        "max_delay": 40.822694301605225,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 5915,
+        "y": 156,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 5915,
+        "y": 143,
+        "min_delay": 40.32116341590881,
+        "max_delay": 50.32116341590881,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 5918,
+        "y": 142,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 5918,
+        "y": 124,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5918,
+        "y": 120,
+        "min_delay": 25.0,
+        "max_delay": 45.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 5918,
+        "y": 109,
+        "min_delay": 25.0,
+        "max_delay": 35.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 5918,
+        "y": 94,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 5918,
+        "y": 89,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 5918,
+        "y": 86,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 5910,
+        "y": 82,
+        "min_delay": 25.0,
+        "max_delay": 35.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 5910,
+        "y": 94,
+        "min_delay": 25.0,
+        "max_delay": 40.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "local": "Fim",
+        "x": 5901,
+        "y": 94,
+        "min_delay": 25.0,
+        "max_delay": 35.0,
         "exec_callback_after": true,
         "exec_callback_before": true,
         "tolerance": 1
@@ -746,7 +1009,7 @@
         "min_delay": 0.1,
         "max_delay": 0.1,
         "tolerance": 0,
-        "wait_between_moves_after": 50,
+        "wait_between_moves_after": 30,
         "moves_after": ["CLICKB","n","-","="],
         "exec_callback_after": false,
         "exec_callback_before": false

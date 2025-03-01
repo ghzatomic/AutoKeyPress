@@ -1,5 +1,37 @@
 [
     {
+        "local": "Restock",
+        "x": 195,
+        "y": 741,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
+        "tolerance": 0,
+        "moves_after": ["="],
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "local": "Vai p dungeon (AGUARDA MANA)",
+        "x": 195,
+        "y": 741,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
+        "tolerance": 0,
+        "moves_after": ["m"],
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "x": 1914,
+        "y": 1129,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "tolerance": 0,
+        "moves_after": ["DIAGONAL_CIMA_ESQUERDA","DIAGONAL_CIMA_ESQUERDA","DIAGONAL_CIMA_ESQUERDA","DIAGONAL_CIMA_ESQUERDA"],
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
         "x": 5243,
         "y": 2820,
         "min_delay": 0.1,
@@ -394,5 +426,17 @@
         "exec_callback_after": false,
         "exec_callback_before": false,
         "tolerance": 1
+    }
+    ,{
+        "local": "Entra portal",
+        "x": 5229,
+        "y": 2790,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "tolerance": 0,
+        "wait_between_moves_after": 50,
+        "moves_after": ["CLICKB","n","-","="],
+        "exec_callback_after": false,
+        "exec_callback_before": false
     }
 ]

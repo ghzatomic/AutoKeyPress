@@ -1,0 +1,51 @@
+[
+    {
+        "x": 5871,
+        "y": 1081,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "wait_between_moves_after": 1,
+        "moves_after": ["SCROLL_UP","SCROLL_UP"],
+        "tolerance": 0
+    },
+    {
+        "x": 5871,
+        "y": 1081,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5867,
+        "y": 1081,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 5871,
+        "y": 1081,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "wait_between_moves_after": 1,
+        "moves_after": ["SCROLL_DOWN","SCROLL_DOWN"],
+        "tolerance": 1
+    },
+    {
+        "x": 5871,
+        "y": 1081,
+        "min_delay": 50.0,
+        "max_delay": 200.0,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 0
+    }
+]

@@ -1,45 +1,14 @@
 [
     {
         "local": "Entra portal",
-        "x": 5898,
-        "y": 89,
+        "x": 198,
+        "y": 736,
         "min_delay": 0.1,
         "max_delay": 0.1,
         "tolerance": 0,
-        "wait_between_moves_after": 50,
-        "moves_after": ["CLICKB","n"],
-        "exec_callback_after": false,
-        "exec_callback_before": false
-    },
-    {
-        "local": "Vai para a room de Toten",
-        "x": 3850,
-        "y": 2889,
-        "min_delay": 0.1,
-        "max_delay": 0.1,
-        "tolerance": 3,
-        "exec_callback_after": false,
-        "exec_callback_before": false
-    },
-    {
-        "local": "Vai para a room de Toten room",
-        "x": 3841,
-        "y": 2890,
-        "min_delay": 25.0,
-        "max_delay": 25.0,
-        "tolerance": 0,
-        "moves_after": ["-"],
-        "exec_callback_after": false,
-        "exec_callback_before": false
-    },
-    {
-        "local": "Restock",
-        "x": 195,
-        "y": 741,
-        "min_delay": 80.0,
-        "max_delay": 80.0,
-        "tolerance": 0,
-        "moves_after": ["="],
+        "wait_between_moves_after": 5,
+        "moves_after": ["CLICKB","x"],
+        
         "exec_callback_after": false,
         "exec_callback_before": false
     }

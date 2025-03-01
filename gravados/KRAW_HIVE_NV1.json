@@ -1,0 +1,657 @@
+[
+    {
+        "local": "Restock",
+        "x": 195,
+        "y": 741,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
+        "tolerance": 0,
+        "moves_after": ["="],
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "local": "Vai p dungeon (AGUARDA MANA)",
+        "x": 195,
+        "y": 741,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
+        "tolerance": 0,
+        "moves_after": ["m"],
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "x": 7233,
+        "y": 449,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7248,
+        "y": 449,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7250,
+        "y": 449,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7255,
+        "y": 449,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7260,
+        "y": 445,
+        "min_delay": 51.58582139015198,
+        "max_delay": 51.58582139015198,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7260,
+        "y": 434,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7269,
+        "y": 434,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7276,
+        "y": 435,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7276,
+        "y": 446,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": false,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7276,
+        "y": 456,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": false,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7290,
+        "y": 457,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7301,
+        "y": 457,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7301,
+        "y": 445,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7301,
+        "y": 440,
+        "min_delay": 39.54584741592407,
+        "max_delay": 39.54584741592407,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7301,
+        "y": 434,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7314,
+        "y": 434,
+        "min_delay": 15.0,
+        "max_delay": 15.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7324,
+        "y": 432,
+        "min_delay": 25.0,
+        "max_delay": 35.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7324,
+        "y": 419,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7325,
+        "y": 413,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7326,
+        "y": 408,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7340,
+        "y": 408,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7354,
+        "y": 408,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7354,
+        "y": 402,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7354,
+        "y": 394,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7360,
+        "y": 393,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7366,
+        "y": 393,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7373,
+        "y": 393,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7384,
+        "y": 393,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7384,
+        "y": 401,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7384,
+        "y": 405,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7384,
+        "y": 414,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7384,
+        "y": 423,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7373,
+        "y": 423,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7368,
+        "y": 423,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7353,
+        "y": 423,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7353,
+        "y": 409,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7338,
+        "y": 409,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7325,
+        "y": 409,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7325,
+        "y": 405,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7325,
+        "y": 397,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7325,
+        "y": 385,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7315,
+        "y": 385,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7301,
+        "y": 385,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7301,
+        "y": 398,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7301,
+        "y": 409,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7301,
+        "y": 409,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7292,
+        "y": 410,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7283,
+        "y": 410,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7277,
+        "y": 410,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7285,
+        "y": 409,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7300,
+        "y": 409,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7301,
+        "y": 417,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7301,
+        "y": 427,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7301,
+        "y": 433,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7301,
+        "y": 441,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7301,
+        "y": 456,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7301,
+        "y": 456,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7296,
+        "y": 456,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7284,
+        "y": 456,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7278,
+        "y": 456,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7278,
+        "y": 448,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7278,
+        "y": 440,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7278,
+        "y": 435,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7271,
+        "y": 434,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7262,
+        "y": 434,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7261,
+        "y": 449,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7252,
+        "y": 449,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 7249,
+        "y": 449,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "x": 7237,
+        "y": 449,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+    ,{
+        "local": "Entra portal",
+        "x": 7229,
+        "y": 449,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "tolerance": 0,
+        "wait_between_moves_after": 50,
+        "moves_after": ["CLICKB","n","-","="],
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    }
+]

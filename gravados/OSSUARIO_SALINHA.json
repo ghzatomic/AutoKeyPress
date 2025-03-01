@@ -1,0 +1,38 @@
+[
+    {
+        "x": 5603,
+        "y": 1287,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 0
+    },
+    {
+        "x": 5605,
+        "y": 1289,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 0
+    },
+    {
+        "x": 5603,
+        "y": 1287,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 0
+    },
+    {
+        "x": 5605,
+        "y": 1289,
+        "min_delay": 120.0,
+        "max_delay": 120.0,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 0
+    }
+]

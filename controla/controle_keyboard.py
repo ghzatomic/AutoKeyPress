@@ -48,6 +48,38 @@ class KeyboardController:
         """Retorna o dicionário de movimentos disponíveis."""
         return self.movements
 
+    def send_text(self, text, delay=0.05):
+        """
+        Digita o texto caractere por caractere utilizando o pynput.
+        Se o caractere for uma letra maiúscula, utiliza a tecla SHIFT.
+        Ao final, envia um ENTER.
+        
+        :param text: String a ser digitada.
+        :param delay: Tempo de delay (em segundos) entre os eventos.
+        """
+        # Após digitar o texto, envia ENTER
+        self.keyboard.press(Key.enter)
+        time.sleep(delay)
+        self.keyboard.release(Key.enter)
+        for char in text:
+            # Se for letra maiúscula, pressiona SHIFT junto
+            if char.isalpha() and char.isupper():
+                self.keyboard.press(Key.shift)
+                self.keyboard.press(char.lower())
+                time.sleep(0.1)
+                self.keyboard.release(char.lower())
+                self.keyboard.release(Key.shift)
+            else:
+                # Para outros caracteres, incluindo letras minúsculas, números e símbolos
+                self.keyboard.press(char)
+                time.sleep(0.1)
+                self.keyboard.release(char)
+        
+        # Após digitar o texto, envia ENTER
+        self.keyboard.press(Key.enter)
+        time.sleep(delay)
+        self.keyboard.release(Key.enter)
+
     def press_and_release(self, movement, delay_ini=0.5, delay_end=None):
         """
         Executa um movimento que pode ser:

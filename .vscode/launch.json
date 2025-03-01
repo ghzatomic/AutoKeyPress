@@ -27,6 +27,14 @@
             "program": "./testeCaptcha.py",
             "console": "integratedTerminal",
             "justMyCode": false
+        },
+        {
+            "name": "Python: Teste Journal",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "./controla/journal_reader.py",
+            "console": "integratedTerminal",
+            "justMyCode": false
         }
     ]
 }

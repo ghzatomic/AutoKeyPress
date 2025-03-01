@@ -1,0 +1,447 @@
+[
+    {
+        "local": "Restock",
+        "x": 195,
+        "y": 741,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
+        "tolerance": 0,
+        "wait_between_moves_after": 30,
+        "moves_after": ["-","="],
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "local": "Vai p dungeon (AGUARDA MANA)",
+        "x": 195,
+        "y": 741,
+        "min_delay": 15.0,
+        "max_delay": 19.0,
+        "tolerance": 0,
+        "moves_after": ["m"],
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    },
+    {
+        "local":"Primeiro elementais",
+        "x": 6060,
+        "y": 562,
+        "min_delay": 35.0,
+        "max_delay": 45.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+    ,
+    {
+        "x": 6060,
+        "y": 548,
+        "min_delay": 0.1,
+        "max_delay": 0.1    ,
+        "exec_callback_after": false,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+    ,
+    {
+        "x": 6060,
+        "y": 543,
+        "min_delay": 0.1,
+        "max_delay": 0.1    ,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    }
+    ,
+    {
+        "x": 6045,
+        "y": 532,
+        "min_delay": 0.1,
+        "max_delay": 0.1    ,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    }
+    ,
+    {
+        "x": 6039,
+        "y": 532,
+        "min_delay": 0.1,
+        "max_delay": 0.1    ,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    }
+    ,
+    {
+        "local":"Primeiro spot aranhas",
+        "x": 6027,
+        "y": 532,
+        "min_delay": 70.0,
+        "max_delay": 78.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+    
+    ,
+    {
+        "x": 6026,
+        "y": 533,
+        "min_delay": 0.1,
+        "max_delay": 0.1    ,
+        "exec_callback_after": false,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+    ,
+    {
+        "x": 6000,
+        "y": 532,
+        "min_delay": 0.1,
+        "max_delay": 0.1    ,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    }
+    ,
+    {
+        "x": 5990,
+        "y": 532,
+        "min_delay": 0.1,
+        "max_delay": 0.1    ,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    }
+    ,
+    {
+        "local":"Sala aranhas meio direita",
+        "x": 5990,
+        "y": 532,
+        "min_delay": 50.0,
+        "max_delay": 50.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+
+    ,
+    {
+        "local":"Sala aranhas meio direita INDO direita",
+        "x": 5997,
+        "y": 521,
+        "min_delay": 20.0,
+        "max_delay": 20.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+    ,
+    {
+        "local":"Sala aranhas meio direita Aranha Mage",
+        "x": 5997,
+        "y": 521,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+    ,{
+        "local":"Sala aranhas meio indo para o corredor",
+        "x": 5984,
+        "y": 521,
+        "min_delay": 20.0,
+        "max_delay": 20.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+    ,
+    {
+        "local":"entrada do corredor",
+        "x": 5984,
+        "y": 532,
+        "min_delay": 0.1,
+        "max_delay": 0.1    ,
+        "exec_callback_after": false,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+    ,
+    {   
+        "local":"Primeiras aranhas pós sala do meio",
+        "x": 5965,
+        "y": 532,
+        "min_delay": 25,
+        "max_delay": 35    ,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {   
+        "local":"Segundas aranhas pós sala do meio",
+        "x": 5932,
+        "y": 532,
+        "min_delay": 35,
+        "max_delay": 35    ,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+    ,
+    {   
+        "local":"Canto aranhas pós sala do meio",
+        "x": 5917,
+        "y": 533,
+        "min_delay": 35,
+        "max_delay": 35    ,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+    ,
+    {
+        "local":"entrada do corredor",
+        "x": 5916,
+        "y": 546,
+        "min_delay": 0.1,
+        "max_delay": 0.1    ,
+        "exec_callback_after": false,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {   
+        "local":"Primeiro Ursal",
+        "x": 5916,
+        "y": 566,
+        "min_delay": 35,
+        "max_delay": 35    ,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "local":"Passa correndo nv2",
+        "x": 5916,
+        "y": 591,
+        "min_delay": 0.1,
+        "max_delay": 0.1    ,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    }
+    ,
+    {
+        "local":"Passa correndo nv2",
+        "x": 5916,
+        "y": 621,
+        "min_delay": 0.1,
+        "max_delay": 0.1    ,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    }
+    ,
+    {
+        "local":"Passa correndo nv2",
+        "x": 5916,
+        "y": 639,
+        "min_delay": 0.1,
+        "max_delay": 0.1    ,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+
+    {
+           
+        "local":"Ursal canto esquerdo",
+        "x": 5916,
+        "y": 649,
+        "min_delay": 35,
+        "max_delay": 35    ,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+    ,
+    {
+        "local":"Canto esquerdo elemental",
+        "x": 5916,
+        "y": 672,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+
+    ,
+    {
+        "local":"Canto esquerdo elemental2",
+        "x": 5933,
+        "y": 673,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+
+    ,
+    {
+        "local":"Baixada esquerda 1",
+        "x": 5960,
+        "y": 673,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+    ,
+    {
+        "local":"Baixada subindo da esquerda 2",
+        "x": 5971,
+        "y": 673,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+    ,
+    {
+        "local":"esquerda meio bixos stalagafigth",
+        "x": 5987,
+        "y": 673,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+    ,
+    {
+        "local":"esquerda baixada aranhas",
+        "x": 6018,
+        "y": 673,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+    ,
+    {
+        "local":"Canto baixo",
+        "x": 6039,
+        "y": 673,
+        "min_delay": 0.1,
+        "max_delay": 0.1    ,
+        "exec_callback_after": false,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+    ,
+    {
+        "local":"Elemental 1",
+        "x": 6046,
+        "y": 673,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+    ,
+    {
+        "local":"Elemental 2",
+        "x": 6046,
+        "y": 660,
+        "min_delay": 25.0,
+        "max_delay": 25.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "local":"",
+        "x": 6049,
+        "y": 659,
+        "min_delay": 0.1,
+        "max_delay": 0.1    ,
+        "exec_callback_after": false,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+    ,
+    {
+        "local":"",
+        "x": 6052,
+        "y": 659,
+        "min_delay": 0.1,
+        "max_delay": 0.1    ,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    },
+    {
+        "local":"Elemental 3",
+        "x": 6060,
+        "y": 671,
+        "min_delay": 15.0,
+        "max_delay": 15.0,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+
+    ,
+    {
+        "local":"Indo embora",
+        "x": 6060,
+        "y": 649,
+        "min_delay": 0.1,
+        "max_delay": 0.1    ,
+        "exec_callback_after": false,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+    ,
+    {
+        "local":"Indo embora",
+        "x": 6060,
+        "y": 641,
+        "min_delay": 0.1,
+        "max_delay": 0.1    ,
+        "exec_callback_after": false,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+    ,
+    {
+        "local":"Indo embora",
+        "x": 6058,
+        "y": 641,
+        "min_delay": 0.1,
+        "max_delay": 0.1    ,
+        "exec_callback_after": false,
+        "exec_callback_before": false,
+        "tolerance": 1
+    }
+    ,{
+        "local": "Entra portal",
+        "x": 6058,
+        "y": 641,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
+        "tolerance": 1,
+        "wait_between_moves_after": 30,
+        "moves_after": ["CLICKB","CLICKB","n","-"],
+        "exec_callback_after": false,
+        "exec_callback_before": false
+    }
+]

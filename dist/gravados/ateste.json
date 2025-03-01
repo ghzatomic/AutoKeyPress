@@ -1,11 +1,14 @@
 [
     {
-        "local": "Vai p dungeon",
-        "x": 474,
-        "y": 2133,
-        "min_delay": 5.0,
-        "max_delay": 5.0,
+        "local": "Entra portal",
+        "x": 3841,
+        "y": 2891,
+        "min_delay": 0.1,
+        "max_delay": 0.1,
         "tolerance": 0,
-        "moves_after": []
+        "wait_between_moves_after": 50,
+        "moves_after": ["n"],
+        "exec_callback_after": false,
+        "exec_callback_before": false
     }
 ]
