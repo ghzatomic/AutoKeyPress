@@ -1,0 +1,38 @@
+[
+    {
+        "x": 198,
+        "y": 746,
+        "min_delay": 0.2,
+        "max_delay": 0.5,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 193,
+        "y": 746,
+        "min_delay": 0.2,
+        "max_delay": 0.5,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 193,
+        "y": 737,
+        "min_delay": 0.2,
+        "max_delay": 0.5,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    },
+    {
+        "x": 198,
+        "y": 737,
+        "min_delay": 0.2,
+        "max_delay": 0.5,
+        "exec_callback_after": true,
+        "exec_callback_before": true,
+        "tolerance": 1
+    }
+]

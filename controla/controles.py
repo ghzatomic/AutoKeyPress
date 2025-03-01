@@ -463,7 +463,88 @@ class MovementHelper:
 
         print(f"🏁 Destino alcançado! Posição final: X={current_x}, Y={current_y} (tolerância={tolerance})")
 
-    def load_movement_path_with_selection(self,
+
+    def load_movement_path_with_selection(self, uo_assist, selection_callback=None,
+                                            save_folder="gravados",
+                                            default_min_delay=0.2,
+                                            default_max_delay=0.5,
+                                            move_callback_after=None,
+                                            move_callback_before=None):
+        """
+        Carrega o caminho de movimentos de um arquivo JSON contido em save_folder.
+        Se selection_callback for fornecido, ele será chamado com a lista de arquivos disponíveis
+        e deverá retornar o nome do arquivo escolhido.
+        Caso contrário, usa interação via console.
+        Retorna uma lista de tuplas com os dados do caminho.
+        """
+        if not os.path.exists(save_folder):
+            print(f"❌ A pasta '{save_folder}' não existe!")
+            return []
+
+        files = [f for f in os.listdir(save_folder) if f.endswith(".json")]
+        if not files:
+            print("❌ Nenhum arquivo de movimento encontrado!")
+            return []
+
+        if selection_callback:
+            chosen_file = selection_callback(files)
+            if not chosen_file:
+                print("Nenhum arquivo selecionado via callback.")
+                return []
+            filename = os.path.join(save_folder, chosen_file)
+        else:
+            print("\n📂 Arquivos disponíveis:")
+            for i, file in enumerate(files):
+                print(f"[{i+1}] {file}")
+            while True:
+                try:
+                    choice = int(input("Digite o número do arquivo que deseja carregar: ")) - 1
+                    if 0 <= choice < len(files):
+                        filename = os.path.join(save_folder, files[choice])
+                        break
+                    else:
+                        print("❌ Escolha inválida! Tente novamente.")
+                except ValueError:
+                    print("❌ Entrada inválida! Digite um número.")
+
+        try:
+            with open(filename, "r") as f:
+                data = json.load(f)
+        except Exception as e:
+            print(f"Erro ao carregar o arquivo: {e}")
+            return []
+
+        path = []
+        for entry in data:
+            min_delay = entry.get("min_delay", default_min_delay)
+            max_delay = entry.get("max_delay", default_max_delay)
+            tolerance = entry.get("tolerance", 1)
+            exec_callback_after = entry.get("exec_callback_after", True)
+            exec_callback_before = entry.get("exec_callback_before", True)
+            moves_after = entry.get("moves_after", [])
+            wait_between_moves_after = entry.get("wait_between_moves_after", None)
+            exec_scripts_after = entry.get("exec_scripts_after", [])
+
+            def step_delay_fn(min_d=min_delay, max_d=max_delay):
+                return random.uniform(min_d, max_d)
+
+            path.append((
+                entry["x"],
+                entry["y"],
+                step_delay_fn,
+                move_callback_before,
+                move_callback_after,
+                tolerance,
+                moves_after,
+                exec_callback_after,
+                exec_callback_before,
+                wait_between_moves_after,
+                exec_scripts_after
+            ))
+        print(f"📄 {len(path)} coordenadas carregadas do arquivo '{os.path.basename(filename)}'")
+        return path
+
+    def load_movement_path_with_selection_old(self,
                                           uo_assist,
                                           save_folder="gravados",
                                           default_min_delay=0.2,
@@ -536,9 +617,12 @@ class MovementHelper:
         print(f"📄 {len(path)} coordenadas carregadas do arquivo '{files[choice]}'")
         return path
 
-    def record_position_xy(self, uo_assist, save_folder="gravados", filename=None):
+    def record_position_xy(self, uo_assist, save_folder="gravados", filename=None, 
+                           default_min_delay=None, default_max_delay=None):
         """
         Grava coordenadas do personagem ao pressionar F1, F2, F3 e F4 e salva em um arquivo.
+        Se os delays forem passados (default_min_delay e default_max_delay), eles serão usados
+        sem solicitar input adicional.
         """
         if not os.path.exists(save_folder):
             os.makedirs(save_folder)
@@ -558,16 +642,20 @@ class MovementHelper:
         else:
             recorded_positions = []
 
-        while True:
-            try:
-                min_delay = float(input("⏳ Digite o delay mínimo (segundos): "))
-                max_delay = float(input("⏳ Digite o delay máximo (segundos): "))
-                if min_delay > 0 and max_delay >= min_delay:
-                    break
-                else:
-                    print("❌ O delay máximo deve ser >= mínimo, e ambos positivos.")
-            except ValueError:
-                print("❌ Entrada inválida! Digite valores numéricos.")
+        if default_min_delay is not None and default_max_delay is not None:
+            min_delay = default_min_delay
+            max_delay = default_max_delay
+        else:
+            while True:
+                try:
+                    min_delay = float(input("⏳ Digite o delay mínimo (segundos): "))
+                    max_delay = float(input("⏳ Digite o delay máximo (segundos): "))
+                    if min_delay > 0 and max_delay >= min_delay:
+                        break
+                    else:
+                        print("❌ O delay máximo deve ser >= mínimo, e ambos positivos.")
+                except ValueError:
+                    print("❌ Entrada inválida! Digite valores numéricos.")
 
         print(f"🎬 Pressione F1 para gravar com delay padrão ({min_delay}-{max_delay}s)")
         print("🎬 Pressione F2 para gravar com delay fixo de 0.1s")
@@ -575,11 +663,11 @@ class MovementHelper:
         print("🎬 Pressione F4 para gravar com o tempo decorrido entre F3 e F4")
         print("🛑 Pressione CTRL+C para sair.")
 
-        start_time = None  # Para armazenar o tempo do F3
+        start_time = None
 
         try:
             while True:
-                event = keyboard.read_event(suppress=False)  # Captura qualquer tecla
+                event = keyboard.read_event(suppress=False)
                 if event.event_type == keyboard.KEY_DOWN:
                     coords = uo_assist.get_character_coords()
                     if not coords:
@@ -595,7 +683,6 @@ class MovementHelper:
                         exec_callback_before = True
                         tolerance = 0
                         print(f"🔴 Coordenada gravada (delay padrão): ({current_x}, {current_y})")
-                    
                     elif event.name == "f2":
                         delay_min = 0.1
                         delay_max = 0.1
@@ -603,12 +690,10 @@ class MovementHelper:
                         exec_callback_before = False
                         tolerance = 1
                         print(f"🔴 Coordenada gravada (delay fixo de 0.1s): ({current_x}, {current_y})")
-                    
                     elif event.name == "f3":
                         start_time = time.time()
                         print("⏱️ Contagem de tempo iniciada.")
-                        continue  # Não grava posição, apenas inicia a contagem
-                    
+                        continue
                     elif event.name == "f4" and start_time is not None:
                         elapsed_time = time.time() - start_time
                         delay_min = elapsed_time
@@ -616,8 +701,8 @@ class MovementHelper:
                         exec_callback_after = True
                         exec_callback_before = True
                         tolerance = 0
-                        print(f"🔴 Coordenada gravada (delay baseado no tempo decorrido: {elapsed_time:.2f}s): ({current_x}, {current_y})")
-                        start_time = None  # Reseta o contador
+                        print(f"🔴 Coordenada gravada (delay baseado no tempo: {elapsed_time:.2f}s): ({current_x}, {current_y})")
+                        start_time = None
                     else:
                         continue
 
@@ -639,40 +724,30 @@ class MovementHelper:
         except KeyboardInterrupt:
             print("\n🛑 Gravação interrompida pelo usuário. Coordenadas salvas com sucesso!")
 
-    def execute_movement_path(self, uo_assist, path,
-                              tolerance=1, stuck_threshold=3, step_delay=0.26):
+    def execute_movement_path(self, uo_assist, path, tolerance=1, stuck_threshold=3, step_delay=0.26):
         """
         Percorre um caminho baseado em um mapa de coordenadas, movendo-se de ponto a ponto.
+        (Implementação similar à versão console.)
         """
         self.pause_flag = False
 
         if not uo_assist.attach_to_assistant():
             print("Erro: Não foi possível anexar ao UOAssist.")
             return
-        
+
         coords = uo_assist.get_character_coords()
         if not coords:
             print("Erro: Não foi possível obter as coordenadas iniciais.")
             return
-        
+
         current_x, current_y = coords
         print(f"Posição inicial: X={current_x}, Y={current_y}")
         print(f"Iniciando percurso... {len(path)} pontos no total")
 
-        for (target_x,
-             target_y,
-             step_delay_fn,
-             move_callback_before,
-             move_callback_after,
-             tolerance_local,
-             moves_after,
-             exec_callback_after,
-             exec_callback_before,
-             wait_between_moves_after,
-             exec_scripts_after) in path:
+        for (target_x, target_y, step_delay_fn, move_callback_before, move_callback_after, tolerance_local,
+             moves_after, exec_callback_after, exec_callback_before, wait_between_moves_after, exec_scripts_after) in path:
 
-            # Executa callback "antes", se marcado
-            if exec_callback_before == None or exec_callback_before == True:
+            if exec_callback_before is None or exec_callback_before == True:
                 if move_callback_before:
                     move_callback_before()
 
@@ -689,38 +764,22 @@ class MovementHelper:
             def delay_fn():
                 return step_delay
 
-            # Usa a função move_to_target_smart ou v2
-            self.move_to_target_smart_v2(
-                uo_assist,
-                target_x=target_x,
-                target_y=target_y,
-                step_delay_fn=delay_fn,
-                tolerance=tolerance,
-                stuck_threshold=stuck_threshold
-            )
+            self.move_to_target_smart_v2(uo_assist, target_x, target_y, step_delay_fn,
+                                         tolerance=tolerance, stuck_threshold=stuck_threshold)
 
-            # Executa movimentos adicionais depois de chegar
             if moves_after:
                 for move in moves_after:
-                    self.controlador.press_and_release(move,
-                                                       delay_ini=0.3)
+                    self.controlador.press_and_release(move, delay_ini=0.3)
                     if wait_between_moves_after:
                         time.sleep(wait_between_moves_after)
             if exec_scripts_after:
                 for script in exec_scripts_after:
-                    self.controlador.send_text(script,
-                                                       delay=0.3)
-                    if exec_scripts_after:
+                    self.controlador.send_text(script, delay=0.3)
+                    if wait_between_moves_after:
                         time.sleep(wait_between_moves_after)
-
-            
-
-            # Executa callback "depois", se marcado
-            if exec_callback_after == None or exec_callback_after == True:
+            if exec_callback_after is None or exec_callback_after == True:
                 if move_callback_after:
-                    print("Vai clicar after ...")
                     move_callback_after()
-
             if step_delay_fn:
                 time.sleep(step_delay_fn())
 

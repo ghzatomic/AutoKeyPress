@@ -7,7 +7,7 @@
         "max_delay": 0.1,
         "tolerance": 0,
         "wait_between_moves_after": 5,
-        "moves_after": ["CLICKB","x"],
+        "moves_after": ["CLICKB","l"],
         
         "exec_callback_after": false,
         "exec_callback_before": false
